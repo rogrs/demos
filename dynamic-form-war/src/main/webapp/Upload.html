@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<link rel="stylesheet" href="bootstrap-3.3.4-dist/css/bootstrap.css">
+<meta charset="utf-8">
+<title>Upload</title>
+<meta name="viewport" content="width=device-width">
+
+<script src="http://code.angularjs.org/1.0.0rc10/angular-1.0.0rc10.js"></script>
+  <script>
+    angular.module('myApp', [], function($locationProvider) {
+      $locationProvider.html5Mode(true);
+    });
+    function QueryCntl($scope, $location) {
+      $scope.target = $location.search()['formulario'];
+    }
+  </script>
+</head>
+<body ng-controller="QueryCntl">
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2 class="panel-title">Upload</h2>
+		</div>
+		<div class="panel-body">
+
+
+			<form method="post" action="rs/v1/formulariofiles/upload?formulario={{target}}" enctype="multipart/form-data">
+				<input type="hidden" name="formulario" id="formulario" value="upload" /> 
+				<label>Selecione o arquivo:</label>
+				<p>
+					<input type="file" name="attachment" />
+				<p />
+				<input type="submit" value="Upload file" />
+			</form>
+
+				
+		</div>
+	</div>
+
+</body>
+</html>

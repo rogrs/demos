@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <link rel="stylesheet" href="bootstrap-3.3.4-dist/css/bootstrap.css">
+    <meta charset="utf-8">
+    <title>Cadastro de Perguntas</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+
+  <div class="jumbotron">
+  <div class="container">
+  <div>
+  <div>
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Cadastro de Perguntas</h2>
+  </div>
+  <div class="panel-body">
+
+    <form action="rs/v1/perguntas" method="post">
+      
+      <label for="pergunta">Informe a pergunta</label>
+      <p>  <input type="text" name="pergunta" id="1"> </p>
+     
+     <label for="seguencia">Informe a sequêcia da pergunta</label>
+      <p>  <input type="number" name="sequencia" id="2"> </p>
+
+     <label for="componente">Informe o tipo de componente</label>
+     <p>   <select name="componente">
+      <option value="input">Texto</option>  
+	  <option value="select">Listagem</option>
+	  <option value="radio">Opção</option>
+	  <option value="number">Número</option>
+	  <option value="date">Data</option>
+	</select> </p>
+	
+	  <div>
+         <input type="submit" value='Enviar Dados'>
+         <input type='reset' name='reset' value='Limpar Dados'>
+      </div>
+    </form>
+    
+  </div>
+  </div>
+
+</body>
+</html>

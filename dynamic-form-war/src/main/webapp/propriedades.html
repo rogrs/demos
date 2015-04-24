@@ -1,0 +1,28 @@
+<html>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script>
+ 
+        
+        var app = angular.module("MyApp", []);
+
+        app.controller("PostsCtrl", function($scope, $http) {
+          $http.get('rs/v1/propriedades').
+            success(function(data, status, headers, config) {
+              $scope.posts = data;
+            }).
+            error(function(data, status, headers, config) {
+              // log error
+            });
+        });
+        </script>
+</head>
+<body ng-app="MyApp">
+	<div ng-controller="PostsCtrl">
+		<ul ng-repeat="post in posts">
+			<p>{{post.chave}} - {{post.valor}} </p>
+		</ul>
+	</div>
+</body>
+</html>

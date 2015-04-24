@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <link rel="stylesheet" href="bootstrap-3.3.4-dist/css/bootstrap.css">
+    <meta charset="utf-8">
+    <title>Avaliação</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+
+  <div class="jumbotron">
+  <div class="container">
+    <h1>Questionário</h1>
+    <p>Responda as perguntas de maneira correta e no final clique no botão "Enviar dados".</p>
+  <div>
+  <div>
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Perguntas</h2>
+  </div>
+  <div class="panel-body">
+
+    <form action="rs/v1/formularios" method="post">
+      
+      <label for="pergunta1">1 - Qual é o seu nome?</label>
+      <p>  <input type="text" name="nome" id="1"> </p>
+	
+	<label for="pergunta2">2 - Você estuda?</label> 
+	<p><input type="radio" name="estuda" id="Sim" value="1">
+  	<label for="Sim">Sim</label> <input type="radio" name="estuda" id="Nao" value="2">
+  	<label for="Nao">Não</label> </p>
+
+	<label for="pergunta3">3 - Você cumprimenta estranhos na rua?</label> <br>
+	<p><input type="radio" name="cumprimenta" id="Sim" value="1">
+  	<label for="Sim">Sim</label> <input type="radio" name="cumprimenta" id="Nao" value="2">
+  	<label for="Nao">Não</label> </p>
+
+	<label for="pergunta4">4 - Quem faz os serviços domésticos na sua casa?</label>
+     <p>   <input type="text" name="domesticos" id="4"> </p>
+
+	<label for="pergunta5">5 - Você acha que as vezes acaba comprando produtos sem necessidade?</label> <br>
+	<p><input type="radio" name="compra" id="Sim" value="1">
+  	   <label for="Sim">Sim</label> 
+  	   <input type="radio" name="compra" id="Nao" value="2">
+  	   <label for="Nao">Não</label> </p>
+	
+	<label for="pergunta6">6 - Você fuma?</label> <br>
+	<p><input type="radio" name="fuma" id="Sim" value="1">
+  	<label for="Sim">Sim</label> <input type="radio" name="fuma" id="Nao" value="2">
+  	<label for="Nao">Não</label> </p>
+	
+	<label for="pergunta7">7 - Qual é a cor dos seus olhos?</label>
+	<p><select name="olhos">
+	  <option value="azul">Azuis</option>
+	  <option value="castanho">Castanhos</option>  
+	  <option value="castanho_claro">Castanhos claros</option>
+	  <option value="negros">Negros</option>
+	</select> </p>
+
+	<label for="pergunta8">8 - Qual a sua altura?</label>
+     <p>   <input type="text" name="altura" id="8"> </p>
+
+	<label for="pergunta9">9 - Usa aparelho, tem pirceng ou tatuagem?</label>
+	<p><input type="radio" name="aparelho" id="Sim" value="1">
+  	<label for="Sim">Sim</label> <input type="radio" name="aparelho" id="Nao" value="2">
+  	<label for="Nao">Não</label> </p>
+	
+	<label for="pergunta10">10 - Você acha que os produtos caros são os melhores?</label>
+	<p><input type="radio" name="caros" id="Sim" value="1">
+  	<label for="Sim">Sim</label> <input type="radio" name="caros" id="Nao" value="2">
+  	<label for="Nao">Não</label> </p>
+	
+	<label for="pergunta11">11 - O que você queria ser quando era criança?</label>
+     <p> <input type="text" name="crescer" id="11"> </p>
+
+	<label for="pergunta12">12 - Qual o nome do seu melhor amigo?</label>
+      <p>  <input type="text" name="amigo" id="12"> </p>
+
+	<label for="pergunta13">13 - Você tem algum aninal?</label>
+	<p><input type="radio" name="animal" id="Sim" value="1">
+  	<label for="Sim">Sim</label> <input type="radio" name="animal" id="Nao" value="2">
+  	<label for="Nao">Não</label> </p>
+
+	<label for="pergunta14">14 - Você já saiu do país?</label>
+	<p><input type="radio" name="pais" id="Sim" value="1">
+  	<label for="Sim">Sim</label> 
+  	<input type="radio" name="pais" id="Nao" value="2">
+  	<label for="Nao">Não</label> </p>
+	
+	<label for="pergunta15">15 - Qual tipo de filme favorito?</label>
+     <p>   <select name="filme">
+	  <option value="acao">Ação</option>
+	  <option value="drama">Drama</option>
+	  <option value="romance">Romance</option>  
+	  <option value="suspense">Suspense</option>
+	  <option value="terror">Terror</option>
+	</select> </p>
+
+	<label for="pergunta16">16 - Qual seu programa de TV favorito?</label>
+     <p><input type="text" name="tv" id="16"> </p>
+
+	<label for="pergunta17">17 - Qual seu livro favorito?</label>
+      <p>  <input type="text" name="livro" id="17"> </p>
+	
+	<label for="pergunta18">18 - Bebida favorita?</label>
+       <p> <input type="text" name="bebida" id="18"> </p>
+	
+	<label for="pergunta19">19 - Loja de roupa favorita?</label>
+      <p>  <input type="text" name="loja" id="19"> </p>
+	
+	<label for="pergunta20">20 - Lugar favorito?</label>
+      <p>  <input type="text" name="lugar" id="20"></p>
+	
+	<label for="pergunta21">21 - Você prefere Facebook ou Twitter?</label>
+	<p><input type="radio" name="rede" id="facebook" value="1">
+  	<label for="facebook">Facebook</label> 
+  	<input type="radio" name="rede" id="twitter" value="2">
+  	<label for="twitter">Twitter</label> </p>
+
+	<label for="pergunta22">22 - Qual é o modelo do seu celular?</label>
+     <p>   <select name="modelo">
+	  <option value="motorola">Motorola</option>
+	  <option value="samsung">Samsung</option>
+	  <option value="iphone">Iphone</option>  
+	  <option value="windows">Window</option>
+	  <option value="outros">Outros</option>
+	</select> </p>
+	
+	<label for="pergunta23">23 - Você quer ter quantos filhos?</label>
+     <p>   <input type="text" name="filhos" id="23"> </p>
+	
+	<label for="pergunta24">24 - Você acredita em Deus?</label>
+	<p><input type="radio" name="deus" id="Sim" value="1">
+  	<label for="Sim">Sim</label> <input type="radio" name="deus" id="Nao" value="2">
+  	<label for="Nao">Não</label> </p>
+	
+	<label for="pergunta25">25 - O YouTube é coisa de quem não tem o que fazer?</label>
+	<p><input type="radio" name="youtube" id="Sim" value="1">
+  	<label for="Sim">Sim</label> 
+  	<input type="radio" name="youtube" id="Nao" value="2">
+  	<label for="Nao">Não</label> </p>
+	
+	<label for="pergunta26">26 - O que você mais gosta de fazer?</label>
+     <p>   <input type="text" name="fazer" id="26"> </p>
+	
+	<label for="pergunta27">27 - Qual foi o último filme que você assistiu?</label>
+      <p>  <input type="text" name="assistiu" id="27"> </p>
+	
+	<label for="pergunta28">28 - Para qual time que você torce?</label>
+      <p>  <input type="text" name="torcida" id="28"> </p>
+	
+	<label for="pergunta29">29 - Quantas pessoas moram com você?</label>
+      <p>  <input type="text" name="oculos" id="29"> </p>
+	
+	<label for="pergunta30">30 - Qual é a sua data de nascimento?</label>
+	  <p><input type="date" name="moram"></p>
+
+  
+	  <div>
+         <input type="submit" value='Enviar Dados'>
+         <input type='reset' name='reset' value='Limpar Dados'>
+      </div>
+    </form>
+    
+  </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <link rel="stylesheet" href="../bootstrap-3.3.4-dist/css/bootstrap.css">
+    <meta charset="utf-8">
+    <title>Cadastro de Usuários</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+
+  <div class="jumbotron">
+  <div class="container">
+  <div>
+  <div>
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Cadastro de Usuários</h2>
+  </div>
+  <div class="panel-body">
+
+    <form action="rs/v1/users" method="post">
+      
+      <label for="username">Usuário</label>
+      <p>  <input type="text" name="username" id="username"> </p>
+     
+     <label for="fullname">Nome completo do usuário</label>
+      <p>  <input type="text" name="fullname" id="fullname"> </p>
+      
+      <label for="pwd">Senha</label>
+      <p>  <input type="password" name="pwd" id="pwd"> </p>
+       
+       <label for="newpwd">Senha</label>
+      <p>  <input type="password" name="newpwd" id="newpwd"> </p>
+
+     <label for="role">Role</label>
+     <p>   <select name="role">
+      <option value="USER">Usuário</option>  
+	  <option value="ADMIN">Adminstrador</option>
+	 
+	</select> </p>
+	
+	  <div>
+         <input type="submit" value='Enviar Dados'>
+         <input type='reset' name='reset' value='Limpar Dados'>
+      </div>
+    </form>
+    
+  </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+<script src="./js/files.js"></script>
+</head>
+<body ng-app="MyApp">
+	<div ng-controller="PostsCtrl">
+		<ul ng-repeat="post in posts">
+			<p>
+			<img src="{{post.filepath}}" alt="{{post.id}}-{{post.idformulario}}" style="width:304px;height:228px">
+			
+			</p>
+		</ul>
+	</div>
+</body>
+</html>
