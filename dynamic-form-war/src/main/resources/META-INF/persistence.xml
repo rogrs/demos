@@ -17,10 +17,28 @@
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/demo"/>
-      <property name="javax.persistence.jdbc.password" value="#masterjedi1"/>
+      <property name="javax.persistence.jdbc.password" value="#demo2015"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.user" value="demo"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
+  
+  <persistence-unit name="demo-pu-remote" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<non-jta-data-source>java:/comp/env/jdbc/demoDS</non-jta-data-source>
+		<class>br.com.demo.vo.CasoTeste</class>
+		<class>br.com.demo.vo.Propriedades</class>
+		<class>br.com.demo.vo.Projeto</class>
+		<class>br.com.demo.vo.Evento</class>
+		<class>br.com.demo.vo.Tarefa</class>
+		<class>br.com.demo.vo.Pergunta</class>
+		<class>br.com.demo.vo.Formulario</class>
+	    <class>br.com.demo.vo.Usuarios</class>
+        <class>br.com.demo.vo.PerguntaValues</class>
+        <class>br.com.demo.vo.Respostas</class>
+        <class>br.com.demo.vo.AuthenticationCredentials</class>
+        <class>br.com.demo.vo.FormularioFiles</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+	</persistence-unit>
 </persistence>
