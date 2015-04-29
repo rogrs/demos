@@ -65,31 +65,51 @@ public class UsuariosRestlet implements UsuarioRest {
                 impl.persist(entity);
 
                 location = new URI("../Usuarios.html");
-            }else{
-                location = new URI("../Usuario.html"); 
+            } else {
+                location = new URI("../Usuario.html");
             }
 
         } catch (Exception e) {
-            logger.error("erro", e);
+            logger.error("Erro ao executar create", e);
 
         } finally {
 
         }
         return Response.temporaryRedirect(location).build();
-        // return Response.ok(result).build();
-
     }
 
     @Override
     public Response getByID(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        UsuariosServiceImpl impl = null;
+
+        URI location = null;
+        try {
+            impl = new UsuariosServiceImpl();
+            impl.find(id);
+            location = new URI("../Usuarios.html");
+        } catch (Exception e) {
+            logger.error("Erro ao executar getByID " + id, e);
+        }
+
+        return Response.temporaryRedirect(location).build();
     }
 
     @Override
     public Response remove(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        UsuariosServiceImpl impl = null;
+        Usuarios entity = null;
+        URI location = null;
+        try {
+            impl = new UsuariosServiceImpl();
+            entity = new Usuarios(id);
+            impl.remove(entity);
+            location = new URI("../Usuarios.html");
+        } catch (Exception e) {
+            logger.error("Erro ao executar remove " + id, e);
+        }
+
+        return Response.temporaryRedirect(location).build();
+
     }
 
 }

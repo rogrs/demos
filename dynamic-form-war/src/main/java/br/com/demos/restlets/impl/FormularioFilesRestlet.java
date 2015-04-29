@@ -55,14 +55,14 @@ public class FormularioFilesRestlet implements FormularioFilesRest {
 
                 MultivaluedMap<String, String> header = inputPart.getHeaders();
                 String fileName = getFileName(header);
-
+                String pathFile = null;
                 // convert the uploaded file to inputstream
                 InputStream inputStream = inputPart.getBody(InputStream.class, null);
 
                 byte[] bytes = IOUtils.toByteArray(inputStream);
                 // constructs upload file path
-                fileName = property.getValor() + fileName;
-                writeFile(bytes, fileName);
+                pathFile = property.getValor() + fileName;
+                writeFile(bytes, pathFile);
                 
                 FormularioFiles obj =new FormularioFiles();
                 obj.setIdformulario(formulario);
@@ -72,8 +72,7 @@ public class FormularioFilesRestlet implements FormularioFilesRest {
                 
                 location = new URI("../Relatorio.html");
                 
-                //return Response.status(200).entity("Uploaded file name : " + fileName).build();
-
+                
             } catch (Exception e) {
 
                 logger.error("Erro uploadFile ", e);
@@ -136,21 +135,21 @@ public class FormularioFilesRestlet implements FormularioFilesRest {
     public Response listByFormulario(Long formulario) {
         FormularioFilesServiceImpl impl = null;
         List<FormularioFiles> entity = null;
-
+        URI location = null;
         try {
             impl = new FormularioFilesServiceImpl();
 
 
             entity = impl.findFilesByFormulario(formulario);
+            location = new URI("./Files.html");
         } catch (Exception e) {
             logger.error("Erro ao listar formulario id="+formulario, e);
 
         } finally {
 
         }
-
-        return Response.ok(entity, MediaType.APPLICATION_JSON).build();
-
+        //return Response.ok(entity, MediaType.APPLICATION_JSON).build();
+        return Response.temporaryRedirect(location).build();
     }
 
 }

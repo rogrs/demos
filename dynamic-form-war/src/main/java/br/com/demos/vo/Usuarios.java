@@ -1,4 +1,3 @@
-
 package br.com.demos.vo;
 
 import java.io.Serializable;
@@ -20,19 +19,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Entity
 @Table(name = "usuarios")
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u"),
-    @NamedQuery(name = "Usuarios.findById", query = "SELECT u FROM Usuarios u WHERE u.id = :id"),
-    @NamedQuery(name = "Usuarios.findByUsername", query = "SELECT u FROM Usuarios u WHERE u.username = :username"),
-    @NamedQuery(name = "Usuarios.findByFullname", query = "SELECT u FROM Usuarios u WHERE u.fullname = :fullname"),
-    @NamedQuery(name = "Usuarios.findByPwd", query = "SELECT u FROM Usuarios u WHERE u.pwd = :pwd"),
-    @NamedQuery(name = "Usuarios.findBySalt", query = "SELECT u FROM Usuarios u WHERE u.salt = :salt"),
-    @NamedQuery(name = "Usuarios.findByDtcreate", query = "SELECT u FROM Usuarios u WHERE u.dtcreate = :dtcreate"),
-    @NamedQuery(name = "Usuarios.findByEnable", query = "SELECT u FROM Usuarios u WHERE u.enable = :enable")})
+@NamedQueries({ @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u"),
+        @NamedQuery(name = "Usuarios.findById", query = "SELECT u FROM Usuarios u WHERE u.id = :id"),
+        @NamedQuery(name = "Usuarios.findByUsername", query = "SELECT u FROM Usuarios u WHERE u.username = :username"),
+        @NamedQuery(name = "Usuarios.findByFullname", query = "SELECT u FROM Usuarios u WHERE u.fullname = :fullname"),
+        @NamedQuery(name = "Usuarios.findByPwd", query = "SELECT u FROM Usuarios u WHERE u.pwd = :pwd"),
+        @NamedQuery(name = "Usuarios.findBySalt", query = "SELECT u FROM Usuarios u WHERE u.salt = :salt"),
+        @NamedQuery(name = "Usuarios.findByDtcreate", query = "SELECT u FROM Usuarios u WHERE u.dtcreate = :dtcreate"),
+        @NamedQuery(name = "Usuarios.findByEnable", query = "SELECT u FROM Usuarios u WHERE u.enable = :enable") })
 @Getter
 @Setter
 public class Usuarios implements Serializable {
@@ -68,7 +65,9 @@ public class Usuarios implements Serializable {
     public Usuarios() {
     }
 
-   
+    public Usuarios(Long id) {
+        this.id = id;
+    }
 
     @Override
     public int hashCode() {
@@ -94,5 +93,5 @@ public class Usuarios implements Serializable {
     public String toString() {
         return "br.com.demo.vo.Usuarios[ id=" + id + " ]";
     }
-    
+
 }

@@ -1,6 +1,5 @@
 package br.com.demos.restlets;
 
-import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -32,11 +31,11 @@ public interface UsuarioRest {
     Response getByID(@PathParam("id") Long id);
     
     @POST
-    @RolesAllowed("ADMIN")
     @Path("/")
     @Consumes("application/x-www-form-urlencoded")
    // Response create(@FormParam("username") String userName,@FormParam("userpass") String userPass);
     Response create(@Form UsuarioForm form);
+    
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
