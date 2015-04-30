@@ -2,6 +2,7 @@ package br.com.demos.restlets.impl;
 
 import java.net.URI;
 
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
@@ -22,12 +23,12 @@ public class AuthenticationRestlet implements AuthenticationRest {
         try {
             impl = new UsuariosServiceImpl();
 
-           // if (impl.authenticate(form.getUsername(), form.getUserPass())) {
+            if (impl.authenticate(form.getUsername(), form.getUserPass())) {
               
                 location = new URI("../Relatorio.html");
-           // } else {
-              //  location = new URI("../Home.html");
-           // }
+            } else {
+                location = new URI("../Home.html");
+            }
 
         } catch (Exception e) {
             logger.error("erro", e);
