@@ -75,6 +75,7 @@ public class FormularioFilesServlet extends HttpServlet {
           .append(" </head> ")
           .append("  <body> ")
           .append(tag)
+           .append("<p> ")
           .append(" </body> ")
           .append(" </html>");
 
@@ -85,7 +86,7 @@ public class FormularioFilesServlet extends HttpServlet {
         Propriedades property = getPropetyDB(URL_PATH);
 
         StringBuilder sb = new StringBuilder();
-        sb.append(" <label for='componente'>" + fileName + "</label>");
+        sb.append("<label for='componente'>" + fileName + "</label>");
         sb.append("<p><img src='"+property.getValor() + fileName + "' alt='" + fileName + "' > </p>");
 
         return sb.toString();

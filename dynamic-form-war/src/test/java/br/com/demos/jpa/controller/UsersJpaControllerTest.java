@@ -48,7 +48,7 @@ public class UsersJpaControllerTest extends TestCase {
        String userName = "admin";
        String pwd = "admin2015";
         
-       impl.setEntityManager(em);
+      // impl.setEntityManager(em);
        List<Usuarios> users =   impl.findBySession(userName, pwd);
        
        assertEquals(users.size(), 1);
@@ -62,7 +62,7 @@ public class UsersJpaControllerTest extends TestCase {
         
        
         
-        impl.setEntityManager(em);
+       // impl.setEntityManager(em);
         List<Usuarios>  users =   impl.findAll();
         
         System.out.println("Found " + users.size() + " usuarios:");

@@ -71,8 +71,8 @@ public class ProjetoJpaControllerTest extends TestCase {
        
       
        
-       impl.setEntityManager(em);
-       List<Projeto>  projetos =   impl.findAll();
+      // impl.setEntityManager(em);
+       List<Projeto>  projetos =  impl.findAll();
        
        System.out.println("Found " + projetos.size() + " projetos:");
        for (Projeto p : projetos){

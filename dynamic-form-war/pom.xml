@@ -14,9 +14,29 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>1.7</jdk.version>
 		<RESTEasy.version>3.0.10.Final</RESTEasy.version>
+		<myapi.version>1.0.0-SNAPSHOT</myapi.version>
 	</properties>
 
 	<dependencies>
+	
+	<dependency>
+			<groupId>api-commons-util</groupId>
+			<artifactId>api-commons-util</artifactId>
+			<version>${myapi.version}</version>
+		</dependency> 
+
+		<dependency>
+			<groupId>api-persistence-db</groupId>
+			<artifactId>api-persistence-db</artifactId>
+			<version>${myapi.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>api-security</groupId>
+			<artifactId>api-security</artifactId>
+			<version>${myapi.version}</version>
+		</dependency> 
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
