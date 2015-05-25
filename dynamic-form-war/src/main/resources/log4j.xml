@@ -15,7 +15,7 @@
 	</category>
 
 	<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="${catalina.home}/logs/core-api.log" />
+		<param name="File" value="${catalina.home}/logs/dynamic-form.log" />
 		<param name="Append" value="true" />
 		<param name="DatePattern" value="'.'yyyy-MM-dd-HH" />
 		<layout class="org.apache.log4j.PatternLayout">

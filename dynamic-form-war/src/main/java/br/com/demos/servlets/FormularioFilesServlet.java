@@ -23,7 +23,8 @@ import br.com.demos.vo.Propriedades;
 public class FormularioFilesServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
-    private static final String URL_PATH = "URL_PATH";;
+    private static final String URL_PATH = "URL_PATH";
+    
 
     /**
      * @see HttpServlet#HttpServlet()

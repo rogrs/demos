@@ -14,20 +14,24 @@ public class AuthenticationRestlet implements AuthenticationRest {
 
     private static final Logger logger = Logger.getLogger(AuthenticationRestlet.class);
 
-    public Response session(LoginForm form) {
-        UsuariosServiceImpl impl = null;
+    private static UsuariosServiceImpl service;
 
-       
+    public AuthenticationRestlet() {
+
+        service = new UsuariosServiceImpl();
+    }
+
+    public Response session(LoginForm form) {
+
         URI location = null;
         try {
-            impl = new UsuariosServiceImpl();
 
-           // if (impl.authenticate(form.getUsername(), form.getUserPass())) {
-              
+            if (service.authenticate(form.getUsername(), form.getUserPass())) {
+
                 location = new URI("../Relatorio.html");
-           // } else {
-              //  location = new URI("../Home.html");
-           // }
+            } else {
+                location = new URI("../Home.html");
+            }
 
         } catch (Exception e) {
             logger.error("erro", e);
