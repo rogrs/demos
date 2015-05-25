@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>dynamic-form-war</display-name>
+  <display-name>dynamic-form</display-name>
   <context-param>
     <param-name>resteasy.scan</param-name>
     <param-value>true</param-value>
@@ -35,7 +35,7 @@
     <location>/error.html</location>
   </error-page>
   <welcome-file-list>
-    <welcome-file>Home.html</welcome-file>
+    <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   <security-constraint>
     <web-resource-collection>
