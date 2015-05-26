@@ -147,6 +147,7 @@
 						</div>
 						<div class="widget-content">
 							<div id="featured-datatable_wrapper" class="dataTables_wrapper form-inline no-footer">
+						  
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="dataTables_length" id="featured-datatable_length">
@@ -157,11 +158,13 @@
 									</div>
 									<div class="col-sm-6">
 										<div id="featured-datatable_filter" class="dataTables_filter">
-											<label>Search:<input type="search"
-												class="form-control input-sm" placeholder=""
-												aria-controls="featured-datatable"></label>
+											<label>Busca:<input type="search"
+												class="form-control input-sm" ng-model="s" placeholder=""
+												aria-controls="featured-datatable" autofocus></label>
+
 										</div>
 									</div>
+								
 								</div>
 								<table class="table table-striped">
 									<thead>
