@@ -25,13 +25,14 @@ public class FormularioFilesServlet extends HttpServlet {
     
     private static final String URL_PATH = "URL_PATH";
     
+    private static  FormularioFilesServiceImpl service; 
 
     /**
      * @see HttpServlet#HttpServlet()
      */
     public FormularioFilesServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        service = new FormularioFilesServiceImpl();
     }
     
     private Propriedades getPropetyDB(String chave) {
@@ -39,9 +40,6 @@ public class FormularioFilesServlet extends HttpServlet {
         return impl.findKey(chave);
     }
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
       
@@ -50,10 +48,10 @@ public class FormularioFilesServlet extends HttpServlet {
         List<FormularioFiles> listFiles = null;
         ID idFormulario = new ID(request.getParameter("formulario"));
         StringBuilder sb = new StringBuilder();
-        FormularioFilesServiceImpl impl = null;
+       
         try {
-            impl = new FormularioFilesServiceImpl();
-            listFiles = impl.findFilesByFormulario(idFormulario.getValue());
+           
+            listFiles = service.findFilesByFormulario(idFormulario.getValue());
             for (FormularioFiles formFiles : listFiles) {
                 sb.append(tagIMG(formFiles.getFilepath()));
             }
@@ -72,7 +70,7 @@ public class FormularioFilesServlet extends HttpServlet {
           .append(" <html lang='pt-br'> ")
           .append(" <head> ")
           .append("  <meta charset='UTF-8' /> ")
-          .append("  <title>Teste de Página</title> ")
+          .append("  <title>Listagem de Imagens</title> ")
           .append(" </head> ")
           .append("  <body> ")
           .append(tag)
@@ -88,16 +86,14 @@ public class FormularioFilesServlet extends HttpServlet {
 
         StringBuilder sb = new StringBuilder();
         sb.append("<label for='componente'>" + fileName + "</label>");
-        sb.append("<p><img src='"+property.getValor() + fileName + "' alt='" + fileName + "' > </p>");
+        sb.append("<p><img data-src='holder.js/200x200' class='img-thumbnail' src='"+property.getValor() + fileName + "' alt='" + fileName + "' data-holder-rendered='true' style='width: 200px; height: 200px;' > </p>");
 
         return sb.toString();
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
+   
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
+        doGet(request,response);
     }
 
 }
