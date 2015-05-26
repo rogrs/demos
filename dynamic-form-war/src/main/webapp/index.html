@@ -29,8 +29,8 @@
 <meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;Angular&quot;:&quot;1.2.27&quot;}"><script type="text/javascript" src="chrome-extension://homgcnaoacgigpkkljjjekpignblkeae/detector.js"></script></head>
 
   </head>
+<body ng-controller="MasterCtrl" class="ng-scope">
 
-  <body ng-app="MyApp">
   <div id="page-wrapper" ng-class="{&#39;open&#39;: toggle}" class="open">
 
     <!-- Sidebar -->
@@ -137,42 +137,79 @@
         <!-- End Header Bar -->
 
         <!-- Main Content -->
-         
-      <div ng-controller="PostsCtrl">
 
-	<h2 class="sub-header">Listagem de Respostas</h2>
-	<div class="table-responsive">
-		<div>
-			<a href="Formulario.html" class="btn btn-sm btn-primary">Novo
-				Questionário</a>
+	<div  ng-app="MyApp" ng-controller="PostsCtrl">
+				<rd-widget>
+				<div class="widget" ng-transclude="">
+					<rd-widget-header icon="fa-tasks" title="Listagem de Respostas "
+						class="ng-scope ng-isolate-scope">
+					<div class="widget-header ng-binding">
+						<i class="fa fa-tasks" ng-class="icon"></i> Listagem de Respostas
+						<div class="pull-right" ng-transclude="">
+							<a href="#" class="ng-scope">Manage</a>
+						</div>
+					</div>
+					
+					</rd-widget-header>
+					<rd-widget-body classes="medium no-padding"
+						class="ng-scope ng-isolate-scope">
+					<div class="widget-body medium no-padding" ng-class="classes">
+						<rd-loading ng-show="loading" class="ng-hide">
+						<div class="loading">
+							<div class="double-bounce1"></div>
+							<div class="double-bounce2"></div>
+						</div>
+						</rd-loading>
+						<div ng-hide="loading" class="widget-content" ng-transclude="">
+							<div class="table-responsive ng-scope">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Perguntas</th>
+											<th>Respostas</th>
+											<th>Arquivos</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="post in posts | filter:s as results">
+											<td><a href="Upload.html?formulario={{post.id}}"
+												class="btn btn-info">+</a></td>
+
+											<td>Qual é o seu nome?</td>
+											<td>{{post.nome}}</td>
+											<td><a href="./files?formulario={{post.id}}"
+												class="btn btn-sm btn-success">Show</a></td>
+										</tr>
+
+										<tr ng-if="results.length == 0">
+											<td><strong>Dados não encontrados...</strong></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					</rd-widget-body>
+					<rd-widget-footer class="ng-scope">
+					<div class="widget-footer" ng-transclude="">
+					<a href="Formulario.html" class="btn btn-sm btn-primary">Novo Questionário</a>
+						<ul class="pagination pagination-sm pull-right ng-scope">
+							<li><a href="#">«</a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">»</a></li>
+						</ul>
+						<div class="clearfix ng-scope"></div>
+					</div>
+					</rd-widget-footer>
+				</div>
+				</rd-widget>
+
 		</div>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>Perguntas</th>
-					<th>Respostas</th>
-					<th>Arquivos</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="post in posts | filter:s as results">
-					<td><a href="Upload.html?formulario={{post.id}}"
-						class="btn btn-info">+</a></td>
-
-					<td>Qual é o seu nome?</td>
-					<td>{{post.nome}}</td>
-					<td><a href="./files?formulario={{post.id}}"
-						class="btn btn-sm btn-success">Show</a></td>
-				</tr>
-
-				<tr ng-if="results.length == 0">
-					<td><strong>Dados não encontrados...</strong></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-     
   
       
       </div><!-- End Page Content -->
