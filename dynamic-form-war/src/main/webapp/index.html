@@ -42,7 +42,7 @@
         </li>
         <li class="sidebar-title"><span>NAVIGATION</span></li>
         <li class="sidebar-list">
-          <a href="#view1">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+          <a href="index.html">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
         </li>
         <li class="sidebar-list">
           <a href="#">Tables <span class="menu-icon fa fa-table"></span></a>
@@ -127,7 +127,7 @@
                 Dashboard
               </div>
               <div class="breadcrumb-links">
-                Home / Dashboard
+                Home / Questionários
               </div>
             </div>
           </div>
@@ -142,30 +142,23 @@
 					<div class="widget widget-table">
 						<div class="widget-header">
 							<h3>
-								<i class="fa fa-table"></i> Listagem de Formulários
+								<i class="fa fa-table"></i> Respostas de Questionários
 							</h3>				
 						</div>
 						<div class="widget-content">
 							<div id="featured-datatable_wrapper" class="dataTables_wrapper form-inline no-footer">
 						  
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="dataTables_length" id="featured-datatable_length">
-											<label>
-											<a href="Formulario.html" class="btn btn-sm btn-primary">Novo Questionário</a>
-											</label>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div id="featured-datatable_filter" class="dataTables_filter">
-											<label>Busca:<input type="search"
+								
+						<rd-widget-header icon="fa-plus" title="Extras"
+							class="ng-scope ng-isolate-scope">
+						<div class="widget-header ng-binding">
+								<a href="questionario-create.html" class="btn btn-sm btn-primary">Novo Questionário</a>
+							<div class="pull-right" ng-transclude="">
+								<label>Busca: <input type="search"
 												class="form-control input-sm" ng-model="s" placeholder=""
 												aria-controls="featured-datatable" autofocus></label>
-
-										</div>
-									</div>
-								
-								</div>
+							</div>
+						</div>
 								<table class="table table-striped">
 									<thead>
 										<tr>
@@ -177,12 +170,75 @@
 									<tbody>
 										<tr ng-repeat="post in posts | filter:s as results">
 
-											<td>Qual é o seu nome?</td>
-											<td>{{post.nome}}</td>
+											<td>
+											<p>1. Qual é o seu nome?</p>
+											<p>2. Você estuda?</p>
+											<p>3. Você cumprimenta estranhos na rua?</p>
+											<p>4. Quem faz os serviços domésticos na sua casa?</p>
+											<p>5. Você acha que as vezes acaba comprando produtos sem necessidade?</p>
+											<p>6. Você fuma?</p>
+											<p>7. Qual é a cor dos seus olhos?</p>
+											<p>8. Qual a sua altura?</p>
+											<p>9. Usa aparelho, tem pirceng ou tatuagem?</p>
+											<p>10. Você acha que os produtos caros são os melhores?</p>
+											<p>11. O que você queria ser quando era criança?</p>
+											<p>12. Qual o nome do seu melhor amigo?</p>
+											<p>13. Você tem algum aninal?</p>
+											<p>14. Você já saiu do país?</p>
+											<p>15. Qual tipo de filme favorito?</p>
+											<p>16. Qual seu programa de TV favorito?</p>
+											<p>17. Qual seu livro favorito?</p>
+											<p>18. Bebida favorita?</p>
+											<p>19. Loja de roupa favorita?</p>
+											<p>20. Lugar favorito?</p>
+											<p>21. Você prefere Facebook ou Twitter?</p>
+											<p>22. Qual é o modelo do seu celular?</p>
+											<p>23. Você quer ter quantos filhos?</p>
+											<p>24. Você acredita em Deus?</p>
+											<p>25. O YouTube é coisa de quem não tem o que fazer?</p>
+											<p>26. O que você mais gosta de fazer?</p>
+											<p>27. Qual foi o último filme que você assistiu?</p>
+											<p>28. Para qual time que você torce?</p>
+											<p>29. Quantas pessoas moram com você?</p>
+											<p>30. Qual é a sua data de nascimento?</p>
+											</td>
+											<td>
+											<p>{{post.nome}}</p>
+											<p>{{post.estuda}}</p>
+											<p>{{post.cumprimenta}}</p>
+											<p>{{post.domesticos}}</p>
+											<p>{{post.compra}}</p>
+											<p>{{post.fuma}}</p>
+											<p>{{post.olhos}}</p>
+											<p>{{post.altura}}</p>
+											<p>{{post.aparelho}}</p>
+											<p>{{post.caros}}</p>
+											<p>{{post.crescer}}</p>
+											<p>{{post.amigo}}</p>
+											<p>{{post.animal}}</p>
+											<p>{{post.pais}}</p>
+											<p>{{post.filme}}</p>
+											<p>{{post.tv}}</p>
+											<p>{{post.livro}}</p>
+											<p>{{post.bebida}}</p>
+											<p>{{post.loja}}</p>
+											<p>{{post.lugar}}</p>
+											<p>{{post.rede}}</p>
+											<p>{{post.modelo}}</p>
+											<p>{{post.filhos}}</p>
+											<p>{{post.deus}}</p>
+											<p>{{post.youtube}}</p>
+											<p>{{post.fazer}}</p>
+                                            <p>{{post.assistiu}}</p>
+                                            <p>{{post.torcida}}</p>
+                                            <p>{{post.oculos}}</p>
+                                            <p>{{post.moram}}</p>
+	
+											</td>
 											<td><a href="./files?formulario={{post.id}}"
-												class="btn btn-sm btn-success"><i class="glyphicon glyphicon-picture"></i></a>
-												<a href="Upload.html?formulario={{post.id}}"
-												class="btn btn-sm btn-info"><i class="glyphicon glyphicon-upload"></i></a>
+												class="btn btn-sm btn-success"><i class="glyphicon glyphicon-picture"></i> Imagens</a>
+												<a href="questionario-upload-images.html?formulario={{post.id}}"
+												class="btn btn-sm btn-info"><i class="glyphicon glyphicon-upload"></i> Upload</a>
 												</td>
 										</tr>
 
