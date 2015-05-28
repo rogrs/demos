@@ -19,17 +19,24 @@ import br.com.demos.vo.Usuarios;
 public class UsuariosRestlet implements UsuarioRest {
 
     private static final Logger logger = Logger.getLogger(UsuariosRestlet.class);
+    
+    
+    private static UsuariosServiceImpl service = null;
+    public UsuariosRestlet(){
+        
+        service =  new UsuariosServiceImpl(); 
+    }
 
     public Response listAll() {
 
-        UsuariosServiceImpl impl = null;
+     
 
         List<Usuarios> entity = null;
 
         try {
-            impl = new UsuariosServiceImpl();
+           
 
-            entity = impl.findAll();
+            entity = service.findAll();
         } catch (Exception e) {
             logger.error("erro", e);
 
@@ -43,14 +50,13 @@ public class UsuariosRestlet implements UsuarioRest {
 
     public Response create(@Form UsuarioForm form) {
 
-        UsuariosServiceImpl impl = null;
+      
         Usuarios entity = null;
 
         URI location = null;
 
         try {
-            impl = new UsuariosServiceImpl();
-
+        
             if (form.isValidPassword()) {
                 entity = new Usuarios();
                 entity.setUsername(form.getUsername());
@@ -62,7 +68,7 @@ public class UsuariosRestlet implements UsuarioRest {
 
                 entity = Owasp.generateHash(entity);
 
-                impl.persist(entity);
+                service.persist(entity);
 
                 location = new URI("../Usuarios.html");
             } else {
@@ -80,12 +86,11 @@ public class UsuariosRestlet implements UsuarioRest {
 
     @Override
     public Response getByID(Long id) {
-        UsuariosServiceImpl impl = null;
-
+        
         URI location = null;
         try {
-            impl = new UsuariosServiceImpl();
-            impl.find(id);
+            
+            service.find(id);
             location = new URI("../Usuarios.html");
         } catch (Exception e) {
             logger.error("Erro ao executar getByID " + id, e);
@@ -96,13 +101,13 @@ public class UsuariosRestlet implements UsuarioRest {
 
     @Override
     public Response remove(Long id) {
-        UsuariosServiceImpl impl = null;
+       
         Usuarios entity = null;
         URI location = null;
         try {
-            impl = new UsuariosServiceImpl();
+            
             entity = new Usuarios(id);
-            impl.remove(entity);
+            service.remove(entity);
             location = new URI("../Usuarios.html");
         } catch (Exception e) {
             logger.error("Erro ao executar remove " + id, e);

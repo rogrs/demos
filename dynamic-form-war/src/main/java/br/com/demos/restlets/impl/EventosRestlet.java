@@ -18,22 +18,22 @@ public class EventosRestlet implements EventoRest {
 
    // private static final Logger logger = Logger.getLogger(EventosRestlet.class);
 
-    private EventoServiceImpl impl = null;
+    private EventoServiceImpl service = null;
 
     public EventosRestlet() {
-        impl = new EventoServiceImpl();
+        service = new EventoServiceImpl();
     }
 
     private Evento findById(Long id) {
 
-        return impl.find(id);
+        return service.find(id);
     }
 
     public Response listAll() {
 
         List<Evento> entity = null;
 
-        entity = impl.findAll();
+        entity = service.findAll();
 
         return Response.ok(entity, MediaType.APPLICATION_JSON).build();
 
@@ -55,7 +55,7 @@ public class EventosRestlet implements EventoRest {
             entity.setTipo(form.getTipo());
             entity.setDtcreate(new Date());
 
-            impl.persist(entity);
+            service.persist(entity);
 
           //  result = "sucesso";
      //  } catch (Exception e) {
@@ -86,7 +86,7 @@ public class EventosRestlet implements EventoRest {
 
         entity = findById(id);
 
-        impl.remove(entity);
+        service.remove(entity);
 
         return Response.ok(entity, MediaType.APPLICATION_JSON).build();
     }

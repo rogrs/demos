@@ -16,19 +16,20 @@ public class PropriedadesRestlet implements PropriedadeRest {
 
     private static final Logger logger = Logger.getLogger(PropriedadesRestlet.class);
 
+    private static PropriedadeServiceImpl service = null;
+
+    public PropriedadesRestlet() {
+
+        service = new PropriedadeServiceImpl();
+    }
+
     public Response listar() {
 
-        PropriedadeServiceImpl impl = null;
         List<Propriedades> entity = null;
-
         try {
-            impl = new PropriedadeServiceImpl();
-            entity = impl.findAll();
-
+            entity = service.findAll();
         } catch (Exception e) {
-
             logger.error("erro", e);
-
         } finally {
 
         }
@@ -40,18 +41,17 @@ public class PropriedadesRestlet implements PropriedadeRest {
     public Response create(@FormParam("chave") String chave, @FormParam("valor") String valor) {
 
         String result = null;
-        PropriedadeServiceImpl impl = null;
+       
         Propriedades entity = null;
 
         try {
-
-            impl = new PropriedadeServiceImpl();
+  
 
             entity = new Propriedades();
             entity.setChave(chave);
             entity.setValor(valor);
             entity.setEnabled(1);
-            impl.persist(entity);
+            service.persist(entity);
 
             result = "sucesso";
         } catch (Exception e) {

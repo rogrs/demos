@@ -17,18 +17,25 @@ import br.com.demos.vo.Formulario;
 public class FormulariosRestlet implements FormularioRest {
 
     private static final Logger logger = Logger.getLogger(FormulariosRestlet.class);
+    
+    private static  FormularioServiceImpl service = null;
+    
+    public FormulariosRestlet(){
+        
+        service = new FormularioServiceImpl();
+    }
 
     
     public Response listAll() {
 
-        FormularioServiceImpl impl = null;
+        
 
         List<Formulario> entity = null;
 
         try {
-            impl = new FormularioServiceImpl();
+       
 
-            entity = impl.findAll();
+            entity = service.findAll();
         } catch (Exception e) {
             logger.error("Erro ao listar formulario", e);
 
@@ -41,15 +48,13 @@ public class FormulariosRestlet implements FormularioRest {
     }
 
     public Response create(FormularioForm form) {
-
-        // String result = null;
-        FormularioServiceImpl impl = null;
+      
         Formulario entity = null;
 
         URI location = null;
 
         try {
-            impl = new FormularioServiceImpl();
+           
 
             entity = new Formulario();
             entity.setNome(form.getNome());
@@ -58,7 +63,7 @@ public class FormulariosRestlet implements FormularioRest {
             entity.setTorcida(form.getTorcida());
             entity.setModelo(form.getModelo());
             entity.setDtcreate(new Date());
-            impl.persist(entity);
+            service.persist(entity);
 
             // result = "sucesso";
             location = new URI("../Home.html");

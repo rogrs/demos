@@ -16,14 +16,19 @@ public class CasosTestesRestlet implements CasoTesteRest {
 
     private static final Logger logger = Logger.getLogger(CasosTestesRestlet.class);
 
+    private static CasoTesteServiceImpl service;
+
+    public CasosTestesRestlet() {
+        service = new CasoTesteServiceImpl();
+    }
+
     public Response listar() {
 
-        CasoTesteServiceImpl impl = null;
         List<CasoTeste> entity = null;
 
         try {
-            impl = new CasoTesteServiceImpl();
-            entity = impl.findAll();
+
+            entity = service.findAll();
 
         } catch (Exception e) {
             logger.error("erro", e);
@@ -39,7 +44,7 @@ public class CasosTestesRestlet implements CasoTesteRest {
     public Response create(@FormParam("casoteste") String nmcasoteste, @FormParam("idprojeto") String idprojeto) {
 
         String result = null;
-        CasoTesteServiceImpl impl = null;
+
         CasoTeste entity = null;
         Long projeto = null;
         try {
@@ -49,21 +54,20 @@ public class CasosTestesRestlet implements CasoTesteRest {
         }
 
         try {
-            impl = new CasoTesteServiceImpl();
 
             entity = new CasoTeste();
             entity.setNmcasoteste(nmcasoteste);
             entity.setIdprojeto(projeto);
             entity.setEnabled(1);
 
-            impl.persist(entity);
+            service.persist(entity);
 
             result = "sucesso";
         } catch (Exception e) {
             logger.error("erro", e);
-            result = "Error "+e.getMessage();
+            result = "Error " + e.getMessage();
         } finally {
-            
+
         }
         return Response.ok(result).build();
 

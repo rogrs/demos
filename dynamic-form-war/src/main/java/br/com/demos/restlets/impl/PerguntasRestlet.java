@@ -18,16 +18,20 @@ public class PerguntasRestlet implements PerguntaRest {
 
     private static final Logger logger = Logger.getLogger(PerguntasRestlet.class);
 
-    public Response listAll() {
+    private PerguntaServiceImpl service = null;
 
-        PerguntaServiceImpl impl = null;
+    public PerguntasRestlet() {
+
+        service = new PerguntaServiceImpl();
+    }
+
+    public Response listAll() {
 
         List<Pergunta> entity = null;
 
         try {
-            impl = new PerguntaServiceImpl();
 
-            entity = impl.findAll();
+            entity = service.findAll();
         } catch (Exception e) {
             logger.error("erro", e);
 
@@ -41,31 +45,27 @@ public class PerguntasRestlet implements PerguntaRest {
 
     public Response create(@Form PerguntaForm form) {
 
-       // String result = null;
-        PerguntaServiceImpl impl = null;
         Pergunta entity = null;
-        
         URI location = null;
 
         try {
-            impl = new PerguntaServiceImpl();
 
             entity = new Pergunta();
             entity.setPergunta(form.getPergunta());
             entity.setComponente(form.getComponente());
             entity.setSequencia(form.getSequencia());
-            impl.persist(entity);
+            service.persist(entity);
 
             // result = "sucesso";
             location = new URI("../Perguntas.html");
         } catch (Exception e) {
             logger.error("erro", e);
-   
+
         } finally {
-           
+
         }
         return Response.temporaryRedirect(location).build();
-        //return Response.ok(result).build();
+        // return Response.ok(result).build();
 
     }
 

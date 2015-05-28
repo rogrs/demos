@@ -32,19 +32,24 @@ public class FormularioFilesRestlet implements FormularioFilesRest {
 
     private static final String UPLOAD_PATH = "UPLOAD_PATH";
 
+    private static FormularioFilesServiceImpl service = null;
+
+
+    public FormularioFilesRestlet() {
+        service = new FormularioFilesServiceImpl();
+    }
+
     private Propriedades getPropetyDB(String chave) {
         PropriedadeServiceImpl impl = new PropriedadeServiceImpl();
         return impl.findKey(chave);
     }
 
-    public Response uploadFile(@QueryParam("formulario") Long formulario , MultipartFormDataInput input) throws IOException {
-        
-        FormularioFilesServiceImpl impl = new FormularioFilesServiceImpl();
+    public Response uploadFile(@QueryParam("formulario") Long formulario, MultipartFormDataInput input) throws IOException {
 
         Propriedades property = getPropetyDB(UPLOAD_PATH);
 
         Map<String, List<InputPart>> uploadForm = input.getFormDataMap();
-        
+
         URI location = null;
 
         // Get file data to save
@@ -63,22 +68,21 @@ public class FormularioFilesRestlet implements FormularioFilesRest {
                 // constructs upload file path
                 pathFile = property.getValor() + fileName;
                 writeFile(bytes, pathFile);
-                
-                FormularioFiles obj =new FormularioFiles();
+
+                FormularioFiles obj = new FormularioFiles();
                 obj.setIdformulario(formulario);
                 obj.setFilepath(fileName);
                 obj.setDtcreate(new Date());
-                impl.persist(obj);
-                
+                service.persist(obj);
+
                 location = new URI("../Relatorio.html");
-                
-                
+
             } catch (Exception e) {
 
                 logger.error("Erro uploadFile ", e);
             }
         }
-       
+
         return Response.temporaryRedirect(location).build();
     }
 
@@ -112,14 +116,12 @@ public class FormularioFilesRestlet implements FormularioFilesRest {
 
     @Override
     public Response listAll() {
-        FormularioFilesServiceImpl impl = null;
+
         List<FormularioFiles> entity = null;
 
         try {
-            impl = new FormularioFilesServiceImpl();
 
-
-            entity = impl.findAll();
+            entity = service.findAll();
         } catch (Exception e) {
             logger.error("Erro ao listar formulario", e);
 
@@ -132,23 +134,21 @@ public class FormularioFilesRestlet implements FormularioFilesRest {
     }
 
     @Override
-    public Response listByFormulario(Long formulario) {
-        FormularioFilesServiceImpl impl = null;
-        List<FormularioFiles> entity = null;
+    public Response listByFormulario(Long id) {
+
+        List<FormularioFiles> formularios;
         URI location = null;
         try {
-            impl = new FormularioFilesServiceImpl();
 
-
-            entity = impl.findFilesByFormulario(formulario);
-            location = new URI("./Files.html");
+            formularios = service.findFilesByFormulario(id);
+            location = new URI("./questionario-list-images.html");
         } catch (Exception e) {
-            logger.error("Erro ao listar formulario id="+formulario, e);
+            logger.error("Erro ao listar formulario id=" + id, e);
 
         } finally {
 
         }
-        //return Response.ok(entity, MediaType.APPLICATION_JSON).build();
+        // return Response.ok(entity, MediaType.APPLICATION_JSON).build();
         return Response.temporaryRedirect(location).build();
     }
 

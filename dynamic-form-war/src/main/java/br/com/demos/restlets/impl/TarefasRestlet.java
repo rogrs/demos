@@ -16,16 +16,19 @@ public class TarefasRestlet implements TarefaRest {
 
     private static final Logger logger = Logger.getLogger(TarefasRestlet.class);
 
-    public Response listAll() {
+    private static TarefaServiceImpl service = null;
 
-        TarefaServiceImpl impl = null;
+    public TarefasRestlet() {
+        service = new TarefaServiceImpl();
+    }
+
+    public Response listAll() {
 
         List<Tarefa> entity = null;
 
         try {
-            impl = new TarefaServiceImpl();
 
-            entity = impl.findAll();
+            entity = service.findAll();
         } catch (Exception e) {
             logger.error("erro", e);
 
@@ -40,22 +43,20 @@ public class TarefasRestlet implements TarefaRest {
     public Response create(@FormParam("tarefa") String tarefa) {
 
         String result = null;
-        TarefaServiceImpl impl = null;
         Tarefa entity = null;
 
         try {
-            impl = new TarefaServiceImpl();
 
             entity = new Tarefa();
             entity.setNmtarefa(tarefa);
             entity.setEnabled(1);
 
-            impl.persist(entity);
+            service.persist(entity);
 
             result = "sucesso";
         } catch (Exception e) {
             logger.error("erro", e);
-            result = "Error "+e.getMessage();
+            result = "Error " + e.getMessage();
         } finally {
 
         }

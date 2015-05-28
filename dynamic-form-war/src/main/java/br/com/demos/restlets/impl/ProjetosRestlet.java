@@ -16,19 +16,22 @@ public class ProjetosRestlet implements ProjetoRest {
 
     private static final Logger logger = Logger.getLogger(ProjetosRestlet.class);
 
-    public Response listAll() {
+    private static ProjetoServiceImpl service = null;
 
-        ProjetoServiceImpl impl = null;
+    public ProjetosRestlet() {
+
+        service = new ProjetoServiceImpl();
+    }
+
+    public Response listAll() {
 
         List<Projeto> entity = null;
 
         try {
-            impl = new ProjetoServiceImpl();
 
-            entity = impl.findAll();
+            entity = service.findAll();
         } catch (Exception e) {
             logger.error("erro", e);
-
         } finally {
 
         }
@@ -40,22 +43,20 @@ public class ProjetosRestlet implements ProjetoRest {
     public Response create(@FormParam("nmprojeto") String nmprojeto) {
 
         String result = null;
-        ProjetoServiceImpl impl = null;
         Projeto entity = null;
 
         try {
-            impl = new ProjetoServiceImpl();
 
             entity = new Projeto();
             entity.setNmprojeto(nmprojeto);
             entity.setEnabled(1);
 
-            impl.persist(entity);
+            service.persist(entity);
 
             result = "sucesso";
         } catch (Exception e) {
             logger.error("erro", e);
-            result = "Error "+e.getMessage();
+            result = "Error " + e.getMessage();
         } finally {
 
         }
