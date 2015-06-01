@@ -16,7 +16,7 @@ public class ProjetosRestlet implements ProjetoRest {
 
     private static final Logger logger = Logger.getLogger(ProjetosRestlet.class);
 
-    private static ProjetoServiceImpl service = null;
+    private  ProjetoServiceImpl service = null;
 
     public ProjetosRestlet() {
 

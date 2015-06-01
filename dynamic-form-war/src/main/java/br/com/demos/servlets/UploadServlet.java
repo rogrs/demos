@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.apache.log4j.Logger;
+
 import br.com.demos.jpa.service.impl.EventoServiceImpl;
 import br.com.demos.jpa.service.impl.PropriedadeServiceImpl;
 import br.com.demos.util.HostInfo;
@@ -30,6 +32,8 @@ public class UploadServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private static final String UPLOAD_PATH = "UPLOAD_PATH";
+    
+    private static final Logger logger = Logger.getLogger(UploadServlet.class);
 
     /**
      * @see HttpServlet#HttpServlet()

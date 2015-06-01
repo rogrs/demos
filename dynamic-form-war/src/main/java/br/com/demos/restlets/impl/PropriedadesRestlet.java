@@ -16,7 +16,7 @@ public class PropriedadesRestlet implements PropriedadeRest {
 
     private static final Logger logger = Logger.getLogger(PropriedadesRestlet.class);
 
-    private static PropriedadeServiceImpl service = null;
+    private PropriedadeServiceImpl service = null;
 
     public PropriedadesRestlet() {
 

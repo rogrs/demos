@@ -48,10 +48,14 @@ public class CasoTeste implements Serializable {
         this.id = id;
     }
 
-    public CasoTeste(Long id, String nmcasoteste, Date dtcreate) {
-        this.id = id;
+    public CasoTeste(String nmcasoteste, Date dtcreate) {
+
         this.nmcasoteste = nmcasoteste;
-        this.dtcreate = dtcreate;
+        if (dtcreate == null) {
+            dtcreate = new Date();
+        } else {
+            this.dtcreate = dtcreate;
+        }
     }
 
     @Override
@@ -78,5 +82,5 @@ public class CasoTeste implements Serializable {
     public String toString() {
         return this.nmcasoteste;
     }
-    
+
 }

@@ -17,7 +17,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Entity
 @Table(name = "tarefa")
 @XmlRootElement
@@ -43,14 +42,16 @@ public class Tarefa implements Serializable {
     public Tarefa() {
     }
 
+    public Tarefa(String nmtarefa, Date dtcreate) {
 
-    public Tarefa(Long id, String nmtarefa, Date dtcreate) {
-        this.id = id;
         this.nmtarefa = nmtarefa;
-        this.dtcreate = dtcreate;
-    }
 
-   
+        if (dtcreate == null) {
+            dtcreate = new Date();
+        } else {
+            this.dtcreate = dtcreate;
+        }
+    }
 
     @Override
     public int hashCode() {
@@ -76,5 +77,5 @@ public class Tarefa implements Serializable {
     public String toString() {
         return this.nmtarefa;
     }
-    
+
 }

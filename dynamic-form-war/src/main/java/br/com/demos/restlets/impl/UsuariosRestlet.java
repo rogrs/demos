@@ -19,9 +19,9 @@ import br.com.demos.vo.Usuarios;
 public class UsuariosRestlet implements UsuarioRest {
 
     private static final Logger logger = Logger.getLogger(UsuariosRestlet.class);
+
+    private UsuariosServiceImpl service = null;
     
-    
-    private static UsuariosServiceImpl service = null;
     public UsuariosRestlet(){
         
         service =  new UsuariosServiceImpl(); 

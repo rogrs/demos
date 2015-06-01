@@ -32,7 +32,7 @@ public class FormularioFilesRestlet implements FormularioFilesRest {
 
     private static final String UPLOAD_PATH = "UPLOAD_PATH";
 
-    private static FormularioFilesServiceImpl service = null;
+    private FormularioFilesServiceImpl service = null;
 
 
     public FormularioFilesRestlet() {

@@ -14,7 +14,7 @@ public class AuthenticationRestlet implements AuthenticationRest {
 
     private static final Logger logger = Logger.getLogger(AuthenticationRestlet.class);
 
-    private static UsuariosServiceImpl service;
+    private  UsuariosServiceImpl service;
 
     public AuthenticationRestlet() {
 

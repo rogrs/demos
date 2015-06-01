@@ -18,7 +18,7 @@ public class FormulariosRestlet implements FormularioRest {
 
     private static final Logger logger = Logger.getLogger(FormulariosRestlet.class);
     
-    private static  FormularioServiceImpl service = null;
+    private FormularioServiceImpl service = null;
     
     public FormulariosRestlet(){
         

@@ -41,6 +41,17 @@ public class Projeto implements Serializable {
 
     public Projeto() {
     }
+    
+    public Projeto(String nmprojeto,Date dtcreate) {
+        
+        this.nmprojeto = nmprojeto;
+        
+        if (dtcreate == null) {
+            dtcreate = new Date();
+        } else {
+            this.dtcreate = dtcreate;
+        }
+    }
 
     @Override
     public int hashCode() {

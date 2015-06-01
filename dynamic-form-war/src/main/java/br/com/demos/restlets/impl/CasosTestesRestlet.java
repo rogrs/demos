@@ -16,7 +16,7 @@ public class CasosTestesRestlet implements CasoTesteRest {
 
     private static final Logger logger = Logger.getLogger(CasosTestesRestlet.class);
 
-    private static CasoTesteServiceImpl service;
+    private CasoTesteServiceImpl service;
 
     public CasosTestesRestlet() {
         service = new CasoTesteServiceImpl();

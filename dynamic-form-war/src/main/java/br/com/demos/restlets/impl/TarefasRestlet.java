@@ -16,7 +16,7 @@ public class TarefasRestlet implements TarefaRest {
 
     private static final Logger logger = Logger.getLogger(TarefasRestlet.class);
 
-    private static TarefaServiceImpl service = null;
+    private TarefaServiceImpl service = null;
 
     public TarefasRestlet() {
         service = new TarefaServiceImpl();
