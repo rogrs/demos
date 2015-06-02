@@ -21,11 +21,13 @@ public class FormularioServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private PerguntaServiceImpl service;
+    private PerguntaValuesServiceImpl serviceValues;
 
     public FormularioServlet() {
         super();
 
         service = new PerguntaServiceImpl();
+        serviceValues = new PerguntaValuesServiceImpl();
    
         // http://bazalt-cms.com/ng-table/example/3
         // http://hello-angularjs.appspot.com/angularjs-http-service-ajax-post-json-data-code-example
@@ -56,9 +58,9 @@ public class FormularioServlet extends HttpServlet {
     private String getSelectValues(Pergunta obj) {
         StringBuilder sb = new StringBuilder();
         List<PerguntaValues> values = null;
-        PerguntaValuesServiceImpl impl = new PerguntaValuesServiceImpl();
+      
 
-        values = impl.findPergunta(obj);
+        values = serviceValues.findPergunta(obj);
         sb.append("<select name='list" + obj.getId() + "'>");
         for (PerguntaValues value : values) {
             sb.append("<option value='" + value.getChave() + "'>");
@@ -71,9 +73,9 @@ public class FormularioServlet extends HttpServlet {
     private String getRadioValues(Pergunta obj) {
         StringBuilder sb = new StringBuilder();
         List<PerguntaValues> values = null;
-        PerguntaValuesServiceImpl impl = new PerguntaValuesServiceImpl();
+       
 
-        values = impl.findPergunta(obj);
+        values = serviceValues.findPergunta(obj);
 
         for (PerguntaValues value : values) {
             sb.append(" <input type='" + obj.getComponente() + "' name='radio" + obj.getId() + "' id='" + obj.getId() + "' value='"

@@ -72,7 +72,7 @@ public class PerguntaValues implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.demo.vo.PerguntaValues[ id=" + id + " ]";
+        return this.chave+" "+this.valor;
     }
     
 }
