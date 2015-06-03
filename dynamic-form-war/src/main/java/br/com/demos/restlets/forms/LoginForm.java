@@ -15,7 +15,7 @@ public class LoginForm {
     @FormParam("newPassword")
     private String newPassword;
 
-    @FormParam("userpass")
+    @FormParam("userPass")
     private String userPass;
 
     @FormParam("username")

@@ -1,7 +1,5 @@
 package br.com.demos.restlets.impl;
 
-import java.net.URI;
-
 import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
@@ -9,6 +7,7 @@ import org.apache.log4j.Logger;
 import br.com.demos.jpa.service.impl.UsuariosServiceImpl;
 import br.com.demos.restlets.AuthenticationRest;
 import br.com.demos.restlets.forms.LoginForm;
+import br.com.demos.vo.Usuarios;
 
 public class AuthenticationRestlet implements AuthenticationRest {
 
@@ -23,24 +22,23 @@ public class AuthenticationRestlet implements AuthenticationRest {
 
     public Response session(LoginForm form) {
 
-        URI location = null;
+        Usuarios usuario = null;
         try {
 
-            if (service.authenticate(form.getUsername(), form.getUserPass())) {
+            usuario = service.authenticate(form.getUsername(), form.getUserPass());
 
-                location = new URI("../Relatorio.html");
-            } else {
-                location = new URI("../Home.html");
+            
+            if (usuario == null){
+                usuario = new Usuarios("Não Válido");
             }
 
         } catch (Exception e) {
-            logger.error("erro", e);
-
+            logger.error("Erro ao executar AuthenticationRestlet.session()" , e);
         }
-        return Response.temporaryRedirect(location).build();
+      
 
-        // return Response.ok(result).build();
-        // return Response.ok(entity, MediaType.APPLICATION_JSON).build();
+       return Response.ok(usuario).build();
+      
 
     }
 

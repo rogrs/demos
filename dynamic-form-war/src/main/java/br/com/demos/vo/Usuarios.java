@@ -64,9 +64,13 @@ public class Usuarios implements Serializable {
 
     public Usuarios() {
     }
-
+    
     public Usuarios(Long id) {
         this.id = id;
+    }
+
+    public Usuarios(String username) {
+        this.username = username;
     }
 
     @Override
