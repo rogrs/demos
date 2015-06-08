@@ -14,6 +14,7 @@ import br.com.demos.restlets.PerguntaRest;
 import br.com.demos.restlets.forms.PerguntaForm;
 import br.com.demos.vo.Pergunta;
 
+
 public class PerguntasRestlet implements PerguntaRest {
 
     private static final Logger logger = Logger.getLogger(PerguntasRestlet.class);
@@ -56,8 +57,7 @@ public class PerguntasRestlet implements PerguntaRest {
             entity.setSequencia(form.getSequencia());
             service.persist(entity);
 
-            // result = "sucesso";
-            location = new URI("../Perguntas.html");
+            location = new URI("../index.html");
         } catch (Exception e) {
             logger.error("erro", e);
 
@@ -77,8 +77,22 @@ public class PerguntasRestlet implements PerguntaRest {
 
     @Override
     public Response remove(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        Pergunta entity = null;
+        URI location = null;
+        String uri = null;
+        try {
+            entity = new Pergunta(id);
+
+            service.remove(entity);
+            location = new URI("../index.html");
+
+        } catch (Exception e) {
+            logger.error("Erro ao executar remove", e);
+
+        } finally {
+
+        }
+        return Response.temporaryRedirect(location).build();
     }
 
 }

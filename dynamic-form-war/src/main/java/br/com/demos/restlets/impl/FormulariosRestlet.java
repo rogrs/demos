@@ -66,7 +66,7 @@ public class FormulariosRestlet implements FormularioRest {
             service.persist(entity);
 
             // result = "sucesso";
-            location = new URI("../Home.html");
+            location = new URI("../index.html");
         } catch (Exception e) {
             logger.error("Erro ao criar formulario", e);
 

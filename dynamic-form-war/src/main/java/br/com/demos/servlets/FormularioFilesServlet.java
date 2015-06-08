@@ -86,7 +86,7 @@ public class FormularioFilesServlet extends HttpServlet {
 
         StringBuilder sb = new StringBuilder();
         sb.append("<label for='componente'>" + fileName + "</label>");
-        sb.append("<p><img data-src='holder.js/200x200' class='img-thumbnail' src='"+property.getValor() + fileName + "' alt='" + fileName + "' data-holder-rendered='true' style='width: 200px; height: 200px;' > </p>");
+        sb.append("<p><img data-src='holder.js/200x200' class='img-thumbnail' src='"+property.getValor() + fileName + "' alt='" + fileName + "' data-holder-rendered='true' style='width: 400px; height: 400px;' > </p>");
 
         return sb.toString();
     }

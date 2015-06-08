@@ -36,6 +36,10 @@ public class Pergunta implements Serializable {
 
     public Pergunta() {
     }
+    
+    public Pergunta(Long id) {
+        this.id =id;
+    }
 
     @Override
     public int hashCode() {

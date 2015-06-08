@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,9 @@ public class FormularioFilesRestlet implements FormularioFilesRest {
     private static final Logger logger = Logger.getLogger(FormularioFilesRestlet.class);
 
     private static final String UPLOAD_PATH = "UPLOAD_PATH";
+    
+    private static final String URL_PATH = "URL_PATH";
+
 
     private FormularioFilesServiceImpl service = null;
 
@@ -75,7 +79,7 @@ public class FormularioFilesRestlet implements FormularioFilesRest {
                 obj.setDtcreate(new Date());
                 service.persist(obj);
 
-                location = new URI("../Relatorio.html");
+                location = new URI("../index.html");
 
             } catch (Exception e) {
 
@@ -135,13 +139,21 @@ public class FormularioFilesRestlet implements FormularioFilesRest {
 
     @Override
     public Response listByFormulario(Long id) {
+        Propriedades property = getPropetyDB(URL_PATH);
 
-        List<FormularioFiles> formularios;
+        List<FormularioFiles> formularios = new ArrayList<FormularioFiles>();
         URI location = null;
         try {
 
             formularios = service.findFilesByFormulario(id);
-            location = new URI("./questionario-list-images.html");
+            
+            for (FormularioFiles obj :formularios){
+                
+                String filePath = property.getValor()+ obj.getFilepath();
+                obj.setFilepath(filePath);
+                
+            }
+            location = new URI("../questionario-list-images.html");
         } catch (Exception e) {
             logger.error("Erro ao listar formulario id=" + id, e);
 
