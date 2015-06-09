@@ -1,6 +1,6 @@
 package br.com.demos.restlets;
 
-import javax.ws.rs.Consumes;
+import javax.annotation.security.PermitAll;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -12,11 +12,12 @@ import javax.ws.rs.core.Response;
 
 import org.jboss.resteasy.annotations.Form;
 
-import br.com.demos.restlets.forms.UserForm;
+import br.com.demos.restlets.forms.GeolocationForm;
 
-//http://howtodoinjava.com/2013/06/26/jax-rs-resteasy-basic-authentication-and-authorization-tutorial/
-@Path(value = "/v1/users/")
-public interface UsuarioRest {
+
+
+@Path(value = "/v1/geolocaions/")
+public interface GeolocationRest {
 
     @GET
     @Path("/")
@@ -30,8 +31,9 @@ public interface UsuarioRest {
 
     @POST
     @Path("/")
-    @Consumes("application/x-www-form-urlencoded")
-    Response create(@Form UserForm form);
+    @PermitAll
+    @Produces(MediaType.APPLICATION_JSON)
+    Response create(@Form GeolocationForm form);
 
     @DELETE
     @Path("/{id}")

@@ -13,7 +13,7 @@ import org.jboss.resteasy.annotations.Form;
 import br.com.api.security.util.Hash;
 import br.com.demos.jpa.service.impl.UsuariosServiceImpl;
 import br.com.demos.restlets.UsuarioRest;
-import br.com.demos.restlets.forms.UsuarioForm;
+import br.com.demos.restlets.forms.UserForm;
 import br.com.demos.vo.Usuarios;
 
 public class UsuariosRestlet implements UsuarioRest {
@@ -46,7 +46,7 @@ public class UsuariosRestlet implements UsuarioRest {
 
     }
 
-    public Response create(@Form UsuarioForm form) {
+    public Response create(@Form UserForm form) {
 
         Usuarios entity = null;
 
@@ -60,15 +60,16 @@ public class UsuariosRestlet implements UsuarioRest {
                 entity.setFullname(form.getFullname());
                 entity.setRole(form.getRole());
                 entity.setEnable(1);
+                entity.setEmail(form.getEmail());
                 entity.setDtcreate(new Date());
                 entity.setSalt(Hash.userNameKey);
-                entity.setPwd(Hash.encrypt(entity.getSalt(),form.getPwd()));
+                entity.setPwd(Hash.encrypt(entity.getSalt(),form.getActualPassword()));
 
                 service.persist(entity);
 
                 location = new URI("../users-list.html");
             } else {
-                location = new URI("../users-crud.html");
+                location = new URI("../register.html");
             }
 
         } catch (Exception e) {

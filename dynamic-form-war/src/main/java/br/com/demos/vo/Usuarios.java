@@ -16,20 +16,24 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Table(name = "usuarios")
 @XmlRootElement
-@NamedQueries({ @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u"),
-        @NamedQuery(name = "Usuarios.findById", query = "SELECT u FROM Usuarios u WHERE u.id = :id"),
-        @NamedQuery(name = "Usuarios.findByUsername", query = "SELECT u FROM Usuarios u WHERE u.username = :username"),
-        @NamedQuery(name = "Usuarios.findByFullname", query = "SELECT u FROM Usuarios u WHERE u.fullname = :fullname"),
-        @NamedQuery(name = "Usuarios.findByPwd", query = "SELECT u FROM Usuarios u WHERE u.pwd = :pwd"),
-        @NamedQuery(name = "Usuarios.findBySalt", query = "SELECT u FROM Usuarios u WHERE u.salt = :salt"),
-        @NamedQuery(name = "Usuarios.findByDtcreate", query = "SELECT u FROM Usuarios u WHERE u.dtcreate = :dtcreate"),
-        @NamedQuery(name = "Usuarios.findByEnable", query = "SELECT u FROM Usuarios u WHERE u.enable = :enable") })
+@NamedQueries({
+    @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u"),
+    @NamedQuery(name = "Usuarios.findById", query = "SELECT u FROM Usuarios u WHERE u.id = :id"),
+    @NamedQuery(name = "Usuarios.findByUsername", query = "SELECT u FROM Usuarios u WHERE u.username = :username"),
+    @NamedQuery(name = "Usuarios.findByFullname", query = "SELECT u FROM Usuarios u WHERE u.fullname = :fullname"),
+    @NamedQuery(name = "Usuarios.findByPwd", query = "SELECT u FROM Usuarios u WHERE u.pwd = :pwd"),
+    @NamedQuery(name = "Usuarios.findBySalt", query = "SELECT u FROM Usuarios u WHERE u.salt = :salt"),
+    @NamedQuery(name = "Usuarios.findByEmail", query = "SELECT u FROM Usuarios u WHERE u.email = :email"),
+    @NamedQuery(name = "Usuarios.findByRole", query = "SELECT u FROM Usuarios u WHERE u.role = :role"),
+    @NamedQuery(name = "Usuarios.findByDtcreate", query = "SELECT u FROM Usuarios u WHERE u.dtcreate = :dtcreate"),
+    @NamedQuery(name = "Usuarios.findByEnable", query = "SELECT u FROM Usuarios u WHERE u.enable = :enable")})
 @Getter
 @Setter
 public class Usuarios implements Serializable {
@@ -52,6 +56,9 @@ public class Usuarios implements Serializable {
     @Column(name = "salt")
     private String salt;
     @Basic(optional = false)
+    @Column(name = "email")
+    private String email;
+    @Basic(optional = false)
     @Column(name = "role")
     private String role;
     @Basic(optional = false)
@@ -64,14 +71,15 @@ public class Usuarios implements Serializable {
 
     public Usuarios() {
     }
-    
+
     public Usuarios(Long id) {
         this.id = id;
     }
 
-    public Usuarios(String username) {
-        this.username = username;
-    }
+    public Usuarios(String fullname) {
+        this.fullname = fullname;
+        }
+
 
     @Override
     public int hashCode() {
@@ -92,6 +100,7 @@ public class Usuarios implements Serializable {
         }
         return true;
     }
+
 
     @Override
     public String toString() {

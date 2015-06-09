@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 
 import br.com.demos.jpa.service.impl.UsuariosServiceImpl;
 import br.com.demos.restlets.AuthenticationRest;
-import br.com.demos.restlets.forms.LoginForm;
+import br.com.demos.restlets.forms.AuthenticationForm;
 import br.com.demos.vo.Usuarios;
 
 public class AuthenticationRestlet implements AuthenticationRest {
@@ -18,20 +18,23 @@ public class AuthenticationRestlet implements AuthenticationRest {
     public AuthenticationRestlet() {
 
         service = new UsuariosServiceImpl();
-    }
+          
+    } 
 
-    public Response session(LoginForm form) {
+    public Response session(AuthenticationForm form) {
 
         Usuarios usuario = null;
         try {
 
-            usuario = service.authenticate(form.getUsername(), form.getUserPass());
+            usuario = service.authenticate(form.getUsername(), form.getActualPassword());
 
             
             if (usuario == null){
                 usuario = new Usuarios("Não Válido");
             }
 
+            
+           
         } catch (Exception e) {
             logger.error("Erro ao executar AuthenticationRestlet.session()" , e);
         }
