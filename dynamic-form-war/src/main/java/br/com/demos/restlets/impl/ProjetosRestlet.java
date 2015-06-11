@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 
 import br.com.demos.jpa.service.impl.ProjetoServiceImpl;
 import br.com.demos.restlets.ProjetoRest;
-import br.com.demos.vo.Projeto;
+import br.com.demos.vo.Projetos;
 
 public class ProjetosRestlet implements ProjetoRest {
 
@@ -25,7 +25,7 @@ public class ProjetosRestlet implements ProjetoRest {
 
     public Response listAll() {
 
-        List<Projeto> entity = null;
+        List<Projetos> entity = null;
 
         try {
 
@@ -43,12 +43,12 @@ public class ProjetosRestlet implements ProjetoRest {
     public Response create(@FormParam("nmprojeto") String nmprojeto) {
 
         String result = null;
-        Projeto entity = null;
+        Projetos entity = null;
 
         try {
 
-            entity = new Projeto();
-            entity.setNmprojeto(nmprojeto);
+            entity = new Projetos();
+            entity.setProjeto(nmprojeto);
             entity.setEnabled(1);
 
             service.persist(entity);

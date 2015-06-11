@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
-import br.com.demos.vo.Pergunta;
+import br.com.demos.vo.Perguntas;
 import br.com.demos.vo.PerguntaValues;
 
 public class PerguntaServiceImplTest {
@@ -16,11 +16,11 @@ public class PerguntaServiceImplTest {
         
         PerguntaValuesServiceImpl serviceValues = new PerguntaValuesServiceImpl();
         PerguntaServiceImpl service = new PerguntaServiceImpl();
-        List<Pergunta> perguntas =  service.findAll();
+        List<Perguntas> perguntas =  service.findAll();
         
         
         
-        for (Pergunta pergunta: perguntas){
+        for (Perguntas pergunta: perguntas){
             LOGGER.info(pergunta);
             LOGGER.info(pergunta.getComponente());
             List<PerguntaValues> perguntaValues =  null;

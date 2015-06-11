@@ -19,17 +19,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
-@Table(name = "respostas")
+@Table(name = "eventos")
 @XmlRootElement
-@NamedQueries({ @NamedQuery(name = "Respostas.findAll", query = "SELECT r FROM Respostas r"),
-        @NamedQuery(name = "Respostas.findById", query = "SELECT r FROM Respostas r WHERE r.id = :id"),
-        @NamedQuery(name = "Respostas.findByIdpergunta", query = "SELECT r FROM Respostas r WHERE r.idpergunta = :idpergunta"),
-        @NamedQuery(name = "Respostas.findByResposta", query = "SELECT r FROM Respostas r WHERE r.resposta = :resposta"),
-        @NamedQuery(name = "Respostas.findByDtcreate", query = "SELECT r FROM Respostas r WHERE r.dtcreate = :dtcreate") })
+@NamedQueries({
+    @NamedQuery(name = "Eventos.findAll", query = "SELECT e FROM Eventos e"),
+    @NamedQuery(name = "Eventos.findById", query = "SELECT e FROM Eventos e WHERE e.id = :id"),
+    @NamedQuery(name = "Eventos.findByDtcreate", query = "SELECT e FROM Eventos e WHERE e.dtcreate = :dtcreate"),
+    @NamedQuery(name = "Eventos.findByHostname", query = "SELECT e FROM Eventos e WHERE e.hostname = :hostname"),
+    @NamedQuery(name = "Eventos.findByMsg", query = "SELECT e FROM Eventos e WHERE e.msg = :msg"),
+    @NamedQuery(name = "Eventos.findBySistema", query = "SELECT e FROM Eventos e WHERE e.sistema = :sistema"),
+    @NamedQuery(name = "Eventos.findByTipo", query = "SELECT e FROM Eventos e WHERE e.tipo = :tipo"),
+    @NamedQuery(name = "Eventos.findByUsuario", query = "SELECT e FROM Eventos e WHERE e.usuario = :usuario")})
 @Getter
 @Setter
-public class Respostas implements Serializable {
+public class Eventos implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,20 +42,24 @@ public class Respostas implements Serializable {
     @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "idpergunta")
-    private long idpergunta;
-    @Basic(optional = false)
-    @Column(name = "resposta")
-    private String resposta;
-    @Basic(optional = false)
     @Column(name = "dtcreate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtcreate;
+    @Column(name = "hostname")
+    private String hostname;
+    @Column(name = "msg")
+    private String msg;
+    @Column(name = "sistema")
+    private String sistema;
+    @Column(name = "tipo")
+    private String tipo;
+    @Column(name = "usuario")
+    private String usuario;
 
-    public Respostas() {
+    public Eventos() {
     }
 
-    public Respostas(Long id) {
+    public Eventos(Long id) {
         this.id = id;
     }
 
@@ -64,10 +73,10 @@ public class Respostas implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Respostas)) {
+        if (!(object instanceof Eventos)) {
             return false;
         }
-        Respostas other = (Respostas) object;
+        Eventos other = (Eventos) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -76,7 +85,7 @@ public class Respostas implements Serializable {
 
     @Override
     public String toString() {
-        return this.resposta;
+        return "br.com.demo.vo.Eventos[ id=" + id + " ]";
     }
-
+    
 }

@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,11 +20,17 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "projeto")
+@Table(name = "casotestes")
 @XmlRootElement
+@NamedQueries({ @NamedQuery(name = "Casotestes.findAll", query = "SELECT c FROM Casotestes c"),
+        @NamedQuery(name = "Casotestes.findById", query = "SELECT c FROM Casotestes c WHERE c.id = :id"),
+        @NamedQuery(name = "Casotestes.findByCasoteste", query = "SELECT c FROM Casotestes c WHERE c.casoteste = :casoteste"),
+        @NamedQuery(name = "Casotestes.findByDtcreate", query = "SELECT c FROM Casotestes c WHERE c.dtcreate = :dtcreate"),
+        @NamedQuery(name = "Casotestes.findByEnabled", query = "SELECT c FROM Casotestes c WHERE c.enabled = :enabled"),
+        @NamedQuery(name = "Casotestes.findByIdprojeto", query = "SELECT c FROM Casotestes c WHERE c.idprojeto = :idprojeto") })
 @Getter
 @Setter
-public class Projeto implements Serializable {
+public class CasoTestes implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,27 +38,28 @@ public class Projeto implements Serializable {
     @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "nmprojeto")
-    private String nmprojeto;
-    @Column(name = "enabled")
-    private Integer enabled;
+    @Column(name = "casoteste")
+    private String casoteste;
     @Basic(optional = false)
     @Column(name = "dtcreate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtcreate;
+    @Basic(optional = false)
+    @Column(name = "enabled")
+    private int enabled;
+    @Basic(optional = false)
+    @Column(name = "idprojeto")
+    private long idprojeto;
 
-    public Projeto() {
+    public CasoTestes() {
     }
-    
-    public Projeto(String nmprojeto,Date dtcreate) {
-        
-        this.nmprojeto = nmprojeto;
-        
-        if (dtcreate == null) {
-            dtcreate = new Date();
-        } else {
-            this.dtcreate = dtcreate;
-        }
+
+    public CasoTestes(Long id) {
+        this.id = id;
+    }
+
+    public CasoTestes(String casoteste) {
+        this.casoteste = casoteste;
     }
 
     @Override
@@ -63,10 +72,10 @@ public class Projeto implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Projeto)) {
+        if (!(object instanceof CasoTestes)) {
             return false;
         }
-        Projeto other = (Projeto) object;
+        CasoTestes other = (CasoTestes) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -75,7 +84,7 @@ public class Projeto implements Serializable {
 
     @Override
     public String toString() {
-        return nmprojeto;
+        return "br.com.demo.vo.Casotestes[ id=" + id + " ]";
     }
-    
+
 }

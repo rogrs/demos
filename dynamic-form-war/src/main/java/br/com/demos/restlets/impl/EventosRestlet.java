@@ -12,7 +12,7 @@ import br.com.demos.jpa.service.impl.EventoServiceImpl;
 import br.com.demos.restlets.EventoRest;
 import br.com.demos.restlets.forms.EventoForm;
 import br.com.demos.util.HostInfo;
-import br.com.demos.vo.Evento;
+import br.com.demos.vo.Eventos;
 
 public class EventosRestlet implements EventoRest {
 
@@ -24,14 +24,14 @@ public class EventosRestlet implements EventoRest {
         service = new EventoServiceImpl();
     }
 
-    private Evento findById(Long id) {
+    private Eventos findById(Long id) {
 
         return service.find(id);
     }
 
     public Response listAll() {
 
-        List<Evento> entity = null;
+        List<Eventos> entity = null;
 
         entity = service.findAll();
 
@@ -43,11 +43,11 @@ public class EventosRestlet implements EventoRest {
 
        // String result = null;
 
-        Evento entity = null;
+        Eventos entity = null;
 
        // try {
 
-            entity = new Evento();
+            entity = new Eventos();
             entity.setHostname(HostInfo.getHostName());
             entity.setUsuario(System.getProperty("user.name"));
             entity.setMsg(form.getMensagem());
@@ -71,7 +71,7 @@ public class EventosRestlet implements EventoRest {
 
     @Override
     public Response getByID(Long id) {
-        Evento entity = null;
+        Eventos entity = null;
 
         entity = findById(id);
 
@@ -82,7 +82,7 @@ public class EventosRestlet implements EventoRest {
     @Override
     public Response remove(Long id) {
 
-        Evento entity = null;
+        Eventos entity = null;
 
         entity = findById(id);
 

@@ -2,18 +2,22 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="default-pu" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<class>br.com.demo.vo.CasoTeste</class>
-		<class>br.com.demo.vo.Propriedades</class>
-		<class>br.com.demo.vo.Projeto</class>
-		<class>br.com.demo.vo.Evento</class>
-		<class>br.com.demo.vo.Tarefa</class>
-		<class>br.com.demo.vo.Pergunta</class>
-		<class>br.com.demo.vo.Formulario</class>
-	    <class>br.com.demo.vo.Usuarios</class>
-        <class>br.com.demo.vo.PerguntaValues</class>
-        <class>br.com.demo.vo.Respostas</class>
-        <class>br.com.demo.vo.AuthenticationCredentials</class>
-        <class>br.com.demo.vo.FormularioFiles</class>
+	<class>br.com.demo.vo.Usuarios</class>
+    <class>br.com.demo.vo.PerguntaValues</class>
+    <class>br.com.demo.vo.Respostas</class>
+    <class>br.com.demo.vo.AuthenticationCredentials</class>
+    <class>br.com.demo.vo.FormularioFiles</class>
+    <class>br.com.demo.vo.CasoTestes</class>
+    <class>br.com.demo.vo.Tarefas</class>
+    <class>br.com.demo.vo.Cidade</class>
+    <class>br.com.demo.vo.Formularios</class>
+    <class>br.com.demo.vo.Projetos</class>
+    <class>br.com.demo.vo.Pais</class>
+    <class>br.com.demo.vo.Perguntas</class>
+    <class>br.com.demo.vo.Estado</class>
+    <class>br.com.demo.vo.Formulario</class>
+    <class>br.com.demo.vo.Propriedades</class>
+    <class>br.com.demo.vo.Eventos</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/demo"/>

@@ -1,5 +1,6 @@
 package br.com.demos.vo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Basic;
@@ -8,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,48 +19,43 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Entity
-@Table(name = "evento")
+@Table(name = "projetos")
 @XmlRootElement
+@NamedQueries({ @NamedQuery(name = "Projetos.findAll", query = "SELECT p FROM Projetos p"),
+        @NamedQuery(name = "Projetos.findById", query = "SELECT p FROM Projetos p WHERE p.id = :id"),
+        @NamedQuery(name = "Projetos.findByProjeto", query = "SELECT p FROM Projetos p WHERE p.projeto = :projeto"),
+        @NamedQuery(name = "Projetos.findByDtcreate", query = "SELECT p FROM Projetos p WHERE p.dtcreate = :dtcreate"),
+        @NamedQuery(name = "Projetos.findByEnabled", query = "SELECT p FROM Projetos p WHERE p.enabled = :enabled") })
 @Getter
 @Setter
-public class Evento  {
-    
+public class Projetos implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
-    @Column(name = "hostname")
-    private String hostname;
-    @Column(name = "usuario")
-    private String usuario;
-    @Column(name = "sistema")
-    private String sistema;
     @Basic(optional = false)
-    @Column(name = "tipo")
-    private String tipo;
-    @Basic(optional = false)
-    @Column(name = "msg")
-    private String msg;
+    @Column(name = "projeto")
+    private String projeto;
     @Basic(optional = false)
     @Column(name = "dtcreate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtcreate;
+    @Basic(optional = false)
+    @Column(name = "enabled")
+    private int enabled;
 
-    public Evento() {
+    public Projetos() {
     }
 
-    public Evento(Long id) {
+    public Projetos(Long id) {
         this.id = id;
     }
 
-    public Evento(Long id, String tipo, String msg, Date dtcreate) {
-        this.id = id;
-        this.tipo = tipo;
-        this.msg = msg;
-        this.dtcreate = dtcreate;
+    public Projetos(String projeto) {
+       this.projeto= projeto;
     }
 
     @Override
@@ -70,10 +68,10 @@ public class Evento  {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Evento)) {
+        if (!(object instanceof Projetos)) {
             return false;
         }
-        Evento other = (Evento) object;
+        Projetos other = (Projetos) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -82,7 +80,7 @@ public class Evento  {
 
     @Override
     public String toString() {
-        return msg;
+        return this.projeto;
     }
-    
+
 }

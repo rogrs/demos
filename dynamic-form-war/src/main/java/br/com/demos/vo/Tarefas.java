@@ -6,8 +6,6 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -20,38 +18,36 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "respostas")
+@Table(name = "tarefas")
 @XmlRootElement
-@NamedQueries({ @NamedQuery(name = "Respostas.findAll", query = "SELECT r FROM Respostas r"),
-        @NamedQuery(name = "Respostas.findById", query = "SELECT r FROM Respostas r WHERE r.id = :id"),
-        @NamedQuery(name = "Respostas.findByIdpergunta", query = "SELECT r FROM Respostas r WHERE r.idpergunta = :idpergunta"),
-        @NamedQuery(name = "Respostas.findByResposta", query = "SELECT r FROM Respostas r WHERE r.resposta = :resposta"),
-        @NamedQuery(name = "Respostas.findByDtcreate", query = "SELECT r FROM Respostas r WHERE r.dtcreate = :dtcreate") })
+@NamedQueries({ @NamedQuery(name = "Tarefas.findAll", query = "SELECT t FROM Tarefas t"),
+        @NamedQuery(name = "Tarefas.findById", query = "SELECT t FROM Tarefas t WHERE t.id = :id"),
+        @NamedQuery(name = "Tarefas.findByTarefa", query = "SELECT t FROM Tarefas t WHERE t.tarefa = :tarefa"),
+        @NamedQuery(name = "Tarefas.findByDtcreate", query = "SELECT t FROM Tarefas t WHERE t.dtcreate = :dtcreate"),
+        @NamedQuery(name = "Tarefas.findByEnabled", query = "SELECT t FROM Tarefas t WHERE t.enabled = :enabled") })
 @Getter
 @Setter
-public class Respostas implements Serializable {
+public class Tarefas implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
-    @Basic(optional = false)
-    @Column(name = "idpergunta")
-    private long idpergunta;
-    @Basic(optional = false)
-    @Column(name = "resposta")
-    private String resposta;
+    @Column(name = "tarefa")
+    private String tarefa;
     @Basic(optional = false)
     @Column(name = "dtcreate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dtcreate;
+    @Basic(optional = false)
+    @Column(name = "enabled")
+    private int enabled;
 
-    public Respostas() {
+    public Tarefas() {
     }
 
-    public Respostas(Long id) {
-        this.id = id;
+    public Tarefas(String tarefa) {
+        this.tarefa = tarefa;
     }
 
     @Override
@@ -64,10 +60,10 @@ public class Respostas implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Respostas)) {
+        if (!(object instanceof Tarefas)) {
             return false;
         }
-        Respostas other = (Respostas) object;
+        Tarefas other = (Tarefas) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -76,7 +72,7 @@ public class Respostas implements Serializable {
 
     @Override
     public String toString() {
-        return this.resposta;
+        return this.tarefa;
     }
 
 }

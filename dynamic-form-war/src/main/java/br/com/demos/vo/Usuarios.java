@@ -6,8 +6,6 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -16,9 +14,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
 import lombok.Getter;
 import lombok.Setter;
+
 
 @Entity
 @Table(name = "usuarios")
@@ -30,7 +28,6 @@ import lombok.Setter;
     @NamedQuery(name = "Usuarios.findByFullname", query = "SELECT u FROM Usuarios u WHERE u.fullname = :fullname"),
     @NamedQuery(name = "Usuarios.findByPwd", query = "SELECT u FROM Usuarios u WHERE u.pwd = :pwd"),
     @NamedQuery(name = "Usuarios.findBySalt", query = "SELECT u FROM Usuarios u WHERE u.salt = :salt"),
-    @NamedQuery(name = "Usuarios.findByEmail", query = "SELECT u FROM Usuarios u WHERE u.email = :email"),
     @NamedQuery(name = "Usuarios.findByRole", query = "SELECT u FROM Usuarios u WHERE u.role = :role"),
     @NamedQuery(name = "Usuarios.findByDtcreate", query = "SELECT u FROM Usuarios u WHERE u.dtcreate = :dtcreate"),
     @NamedQuery(name = "Usuarios.findByEnable", query = "SELECT u FROM Usuarios u WHERE u.enable = :enable")})
@@ -39,7 +36,6 @@ import lombok.Setter;
 public class Usuarios implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
@@ -50,14 +46,14 @@ public class Usuarios implements Serializable {
     @Column(name = "fullname")
     private String fullname;
     @Basic(optional = false)
+    @Column(name = "email")
+    private String email;
+    @Basic(optional = false)
     @Column(name = "pwd")
     private String pwd;
     @Basic(optional = false)
     @Column(name = "salt")
     private String salt;
-    @Basic(optional = false)
-    @Column(name = "email")
-    private String email;
     @Basic(optional = false)
     @Column(name = "role")
     private String role;
@@ -72,14 +68,13 @@ public class Usuarios implements Serializable {
     public Usuarios() {
     }
 
+    public Usuarios(String fullname) {
+        this.fullname=fullname;
+    }
+
     public Usuarios(Long id) {
         this.id = id;
     }
-
-    public Usuarios(String fullname) {
-        this.fullname = fullname;
-        }
-
 
     @Override
     public int hashCode() {
@@ -101,10 +96,9 @@ public class Usuarios implements Serializable {
         return true;
     }
 
-
     @Override
     public String toString() {
-        return "br.com.demo.vo.Usuarios[ id=" + id + " ]";
+        return this.username;
     }
-
+    
 }

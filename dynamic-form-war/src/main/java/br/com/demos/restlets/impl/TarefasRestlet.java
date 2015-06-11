@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 
 import br.com.demos.jpa.service.impl.TarefaServiceImpl;
 import br.com.demos.restlets.TarefaRest;
-import br.com.demos.vo.Tarefa;
+import br.com.demos.vo.Tarefas;
 
 public class TarefasRestlet implements TarefaRest {
 
@@ -24,7 +24,7 @@ public class TarefasRestlet implements TarefaRest {
 
     public Response listAll() {
 
-        List<Tarefa> entity = null;
+        List<Tarefas> entity = null;
 
         try {
 
@@ -43,12 +43,12 @@ public class TarefasRestlet implements TarefaRest {
     public Response create(@FormParam("tarefa") String tarefa) {
 
         String result = null;
-        Tarefa entity = null;
+        Tarefas entity = null;
 
         try {
 
-            entity = new Tarefa();
-            entity.setNmtarefa(tarefa);
+            entity = new Tarefas();
+            entity.setTarefa(tarefa);
             entity.setEnabled(1);
 
             service.persist(entity);

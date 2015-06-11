@@ -17,7 +17,7 @@ import org.apache.log4j.Logger;
 import br.com.demos.jpa.service.impl.EventoServiceImpl;
 import br.com.demos.jpa.service.impl.PropriedadeServiceImpl;
 import br.com.demos.util.HostInfo;
-import br.com.demos.vo.Evento;
+import br.com.demos.vo.Eventos;
 import br.com.demos.vo.Propriedades;
 
 /**
@@ -66,7 +66,7 @@ public class UploadServlet extends HttpServlet {
 
         EventoServiceImpl impl = new EventoServiceImpl();
 
-        Evento entity = new Evento();
+        Eventos entity = new Eventos();
         // gets absolute path of the web application
         // String appPath = request.getServletContext().getRealPath("");
 

@@ -16,40 +16,36 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
-@Table(name = "pergunta_values")
+@Table(name = "estado")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "PerguntaValues.findAll", query = "SELECT p FROM PerguntaValues p"),
-    @NamedQuery(name = "PerguntaValues.findById", query = "SELECT p FROM PerguntaValues p WHERE p.id = :id"),
-    @NamedQuery(name = "PerguntaValues.findByIdpergunta", query = "SELECT p FROM PerguntaValues p WHERE p.idpergunta = :idpergunta"),
-    @NamedQuery(name = "PerguntaValues.findByChave", query = "SELECT p FROM PerguntaValues p WHERE p.chave = :chave"),
-    @NamedQuery(name = "PerguntaValues.findByValor", query = "SELECT p FROM PerguntaValues p WHERE p.valor = :valor")})
+    @NamedQuery(name = "Estado.findAll", query = "SELECT e FROM Estado e"),
+    @NamedQuery(name = "Estado.findById", query = "SELECT e FROM Estado e WHERE e.id = :id"),
+    @NamedQuery(name = "Estado.findByNome", query = "SELECT e FROM Estado e WHERE e.nome = :nome"),
+    @NamedQuery(name = "Estado.findByUf", query = "SELECT e FROM Estado e WHERE e.uf = :uf"),
+    @NamedQuery(name = "Estado.findByPais", query = "SELECT e FROM Estado e WHERE e.pais = :pais")})
 @Getter
 @Setter
-public class PerguntaValues implements Serializable {
+public class Estado implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Long id;
-    @Basic(optional = false)
-    @Column(name = "idpergunta")
-    private long idpergunta;
-    @Basic(optional = false)
-    @Column(name = "chave")
-    private String chave;
-    @Basic(optional = false)
-    @Column(name = "valor")
-    private String valor;
+    private Integer id;
+    @Column(name = "nome")
+    private String nome;
+    @Column(name = "uf")
+    private String uf;
+    @Column(name = "pais")
+    private Integer pais;
 
-    public PerguntaValues() {
+    public Estado() {
     }
 
-    public PerguntaValues(Long id) {
-        this.id = id;
-    }
+   
 
     @Override
     public int hashCode() {
@@ -61,10 +57,10 @@ public class PerguntaValues implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PerguntaValues)) {
+        if (!(object instanceof Estado)) {
             return false;
         }
-        PerguntaValues other = (PerguntaValues) object;
+        Estado other = (Estado) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -73,7 +69,7 @@ public class PerguntaValues implements Serializable {
 
     @Override
     public String toString() {
-        return this.chave;
+        return this.nome;
     }
     
 }

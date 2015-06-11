@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
 
 import br.com.demos.jpa.service.impl.EventoServiceImpl;
 import br.com.demos.util.HostInfo;
-import br.com.demos.vo.Evento;
+import br.com.demos.vo.Eventos;
 
 /**
  * Servlet implementation class TesteServlet
@@ -64,7 +64,7 @@ public class TesteServlet extends HttpServlet {
             LOGGER.info(sb.toString());
             EventoServiceImpl impl = new EventoServiceImpl();
 
-            Evento entity = new Evento();
+            Eventos entity = new Eventos();
 
             entity.setDtcreate(new Date());
             entity.setSistema("SPY");

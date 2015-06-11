@@ -1,7 +1,6 @@
 package br.com.demos.vo;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -12,24 +11,25 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
-@Table(name = "respostas")
+@Table(name = "perguntas")
 @XmlRootElement
-@NamedQueries({ @NamedQuery(name = "Respostas.findAll", query = "SELECT r FROM Respostas r"),
-        @NamedQuery(name = "Respostas.findById", query = "SELECT r FROM Respostas r WHERE r.id = :id"),
-        @NamedQuery(name = "Respostas.findByIdpergunta", query = "SELECT r FROM Respostas r WHERE r.idpergunta = :idpergunta"),
-        @NamedQuery(name = "Respostas.findByResposta", query = "SELECT r FROM Respostas r WHERE r.resposta = :resposta"),
-        @NamedQuery(name = "Respostas.findByDtcreate", query = "SELECT r FROM Respostas r WHERE r.dtcreate = :dtcreate") })
+@NamedQueries({
+    @NamedQuery(name = "Perguntas.findAll", query = "SELECT p FROM Perguntas p"),
+    @NamedQuery(name = "Perguntas.findById", query = "SELECT p FROM Perguntas p WHERE p.id = :id"),
+    @NamedQuery(name = "Perguntas.findByPergunta", query = "SELECT p FROM Perguntas p WHERE p.pergunta = :pergunta"),
+    @NamedQuery(name = "Perguntas.findByComponente", query = "SELECT p FROM Perguntas p WHERE p.componente = :componente"),
+    @NamedQuery(name = "Perguntas.findBySequencia", query = "SELECT p FROM Perguntas p WHERE p.sequencia = :sequencia"),
+    @NamedQuery(name = "Perguntas.findByIdformulario", query = "SELECT p FROM Perguntas p WHERE p.idformulario = :idformulario")})
 @Getter
 @Setter
-public class Respostas implements Serializable {
+public class Perguntas implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,23 +37,24 @@ public class Respostas implements Serializable {
     @Column(name = "id")
     private Long id;
     @Basic(optional = false)
-    @Column(name = "idpergunta")
-    private long idpergunta;
+    @Column(name = "pergunta")
+    private String pergunta;
+    @Column(name = "componente")
+    private String componente;
+    @Column(name = "sequencia")
+    private Integer sequencia;
     @Basic(optional = false)
-    @Column(name = "resposta")
-    private String resposta;
-    @Basic(optional = false)
-    @Column(name = "dtcreate")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dtcreate;
+    @Column(name = "idformulario")
+    private long idformulario;
 
-    public Respostas() {
+    public Perguntas() {
     }
 
-    public Respostas(Long id) {
+    public Perguntas(Long id) {
         this.id = id;
     }
 
+   
     @Override
     public int hashCode() {
         int hash = 0;
@@ -64,10 +65,10 @@ public class Respostas implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Respostas)) {
+        if (!(object instanceof Perguntas)) {
             return false;
         }
-        Respostas other = (Respostas) object;
+        Perguntas other = (Perguntas) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -76,7 +77,7 @@ public class Respostas implements Serializable {
 
     @Override
     public String toString() {
-        return this.resposta;
+        return "br.com.demo.vo.Perguntas[ id=" + id + " ]";
     }
-
+    
 }

@@ -6,11 +6,11 @@ import java.util.Map;
 
 import br.com.api.persistence.generic.GenericDAOJPA;
 import br.com.api.persistence.service.GenericJPAService;
-import br.com.demos.vo.CasoTeste;
+import br.com.demos.vo.CasoTestes;
 
-public class CasoTesteServiceImpl extends GenericDAOJPA<CasoTeste, Long> implements GenericJPAService<CasoTeste> {
+public class CasoTesteServiceImpl extends GenericDAOJPA<CasoTestes, Long> implements GenericJPAService<CasoTestes> {
 
-    public List<CasoTeste> findByName(String name) {
+    public List<CasoTestes> findByName(String name) {
 
         String sql = "SELECT c FROM CasoTeste c WHERE c.nmcasoteste = :nmcasoteste";
 

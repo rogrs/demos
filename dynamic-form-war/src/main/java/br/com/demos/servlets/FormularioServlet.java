@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.demos.components.html.PageHTML;
 import br.com.demos.jpa.service.impl.PerguntaServiceImpl;
 import br.com.demos.jpa.service.impl.PerguntaValuesServiceImpl;
-import br.com.demos.vo.Pergunta;
+import br.com.demos.vo.Perguntas;
 import br.com.demos.vo.PerguntaValues;
 
 @WebServlet("/formulario")
@@ -28,7 +28,7 @@ public class FormularioServlet extends HttpServlet {
 
         service = new PerguntaServiceImpl();
         serviceValues = new PerguntaValuesServiceImpl();
-   
+
         // http://bazalt-cms.com/ng-table/example/3
         // http://hello-angularjs.appspot.com/angularjs-http-service-ajax-post-json-data-code-example
     }
@@ -41,9 +41,9 @@ public class FormularioServlet extends HttpServlet {
 
         StringBuilder data = new StringBuilder();
 
-        List<Pergunta> perguntas = service.findAll();
+        List<Perguntas> perguntas = service.findAll();
 
-        for (Pergunta pergunta : perguntas) {
+        for (Perguntas pergunta : perguntas) {
 
             data.append(" <label for='" + pergunta.getId() + "'>")
                     .append(pergunta.getSequencia() + " - " + pergunta.getPergunta() + "</label>").append(doInputRespost(pergunta));
@@ -55,10 +55,9 @@ public class FormularioServlet extends HttpServlet {
         out.close();
     }
 
-    private String getSelectValues(Pergunta obj) {
+    private String getSelectValues(Perguntas obj) {
         StringBuilder sb = new StringBuilder();
         List<PerguntaValues> values = null;
-      
 
         values = serviceValues.findPergunta(obj);
         sb.append("<select name='list" + obj.getId() + "'>");
@@ -70,10 +69,9 @@ public class FormularioServlet extends HttpServlet {
         return sb.toString();
     }
 
-    private String getRadioValues(Pergunta obj) {
+    private String getRadioValues(Perguntas obj) {
         StringBuilder sb = new StringBuilder();
         List<PerguntaValues> values = null;
-       
 
         values = serviceValues.findPergunta(obj);
 
@@ -87,13 +85,13 @@ public class FormularioServlet extends HttpServlet {
         return sb.toString();
     }
 
-    private String getInput(Pergunta obj) {
+    private String getInput(Perguntas obj) {
         StringBuilder sb = new StringBuilder();
         sb.append("<input type='" + obj.getComponente() + "' name='input" + obj.getId() + "' id='" + obj.getId() + "'> ");
         return sb.toString();
     }
 
-    private String doInputRespost(Pergunta obj) {
+    private String doInputRespost(Perguntas obj) {
         StringBuilder sb = new StringBuilder();
 
         sb.append(" <p> ");
@@ -121,7 +119,6 @@ public class FormularioServlet extends HttpServlet {
         return sb.toString();
     }
 
- 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }

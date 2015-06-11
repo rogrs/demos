@@ -12,7 +12,7 @@ import org.jboss.resteasy.annotations.Form;
 import br.com.demos.jpa.service.impl.PerguntaServiceImpl;
 import br.com.demos.restlets.PerguntaRest;
 import br.com.demos.restlets.forms.PerguntaForm;
-import br.com.demos.vo.Pergunta;
+import br.com.demos.vo.Perguntas;
 
 
 public class PerguntasRestlet implements PerguntaRest {
@@ -28,7 +28,7 @@ public class PerguntasRestlet implements PerguntaRest {
 
     public Response listAll() {
 
-        List<Pergunta> entity = null;
+        List<Perguntas> entity = null;
 
         try {
 
@@ -46,12 +46,12 @@ public class PerguntasRestlet implements PerguntaRest {
 
     public Response create(@Form PerguntaForm form) {
 
-        Pergunta entity = null;
+        Perguntas entity = null;
         URI location = null;
 
         try {
 
-            entity = new Pergunta();
+            entity = new Perguntas();
             entity.setPergunta(form.getPergunta());
             entity.setComponente(form.getComponente());
             entity.setSequencia(form.getSequencia());
@@ -77,11 +77,11 @@ public class PerguntasRestlet implements PerguntaRest {
 
     @Override
     public Response remove(Long id) {
-        Pergunta entity = null;
+        Perguntas entity = null;
         URI location = null;
         String uri = null;
         try {
-            entity = new Pergunta(id);
+            entity = new Perguntas(id);
 
             service.remove(entity);
             location = new URI("../index.html");

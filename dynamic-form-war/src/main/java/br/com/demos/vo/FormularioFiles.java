@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,6 +22,12 @@ import lombok.Setter;
 @Entity
 @Table(name = "formulario_files")
 @XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "FormularioFiles.findAll", query = "SELECT f FROM FormularioFiles f"),
+    @NamedQuery(name = "FormularioFiles.findById", query = "SELECT f FROM FormularioFiles f WHERE f.id = :id"),
+    @NamedQuery(name = "FormularioFiles.findByIdformulario", query = "SELECT f FROM FormularioFiles f WHERE f.idformulario = :idformulario"),
+    @NamedQuery(name = "FormularioFiles.findByFilepath", query = "SELECT f FROM FormularioFiles f WHERE f.filepath = :filepath"),
+    @NamedQuery(name = "FormularioFiles.findByDtcreate", query = "SELECT f FROM FormularioFiles f WHERE f.dtcreate = :dtcreate")})
 @Getter
 @Setter
 public class FormularioFiles implements Serializable {
@@ -29,8 +37,9 @@ public class FormularioFiles implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+    @Basic(optional = false)
     @Column(name = "idformulario")
-    private Long idformulario;
+    private long idformulario;
     @Basic(optional = false)
     @Column(name = "filepath")
     private String filepath;
@@ -40,6 +49,10 @@ public class FormularioFiles implements Serializable {
     private Date dtcreate;
 
     public FormularioFiles() {
+    }
+
+    public FormularioFiles(Long id) {
+        this.id = id;
     }
 
     @Override
@@ -64,7 +77,7 @@ public class FormularioFiles implements Serializable {
 
     @Override
     public String toString() {
-        return filepath;
+        return "br.com.demo.vo.FormularioFiles[ id=" + id + " ]";
     }
     
 }

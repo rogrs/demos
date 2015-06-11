@@ -6,11 +6,11 @@ import java.util.Map;
 
 import br.com.api.persistence.generic.GenericDAOJPA;
 import br.com.api.persistence.service.GenericJPAService;
-import br.com.demos.vo.Evento;
+import br.com.demos.vo.Eventos;
 
-public class EventoServiceImpl extends GenericDAOJPA<Evento, Long> implements GenericJPAService<Evento> {
+public class EventoServiceImpl extends GenericDAOJPA<Eventos, Long> implements GenericJPAService<Eventos> {
 
-    public List<Evento> findByName(String name) {
+    public List<Eventos> findByName(String name) {
 
         String sql = "SELECT e FROM Evento e WHERE e.sistema = :sistema";
         Map<String, Object> params = new HashMap<String, Object>();

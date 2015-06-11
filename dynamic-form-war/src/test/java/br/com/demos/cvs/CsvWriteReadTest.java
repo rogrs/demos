@@ -12,9 +12,9 @@ import org.junit.Test;
 
 import br.com.api.commons.cvs.exception.CVSFileException;
 import br.com.api.commons.init.CsvFileReader;
-import br.com.demos.vo.CasoTeste;
-import br.com.demos.vo.Projeto;
-import br.com.demos.vo.Tarefa;
+import br.com.demos.vo.CasoTestes;
+import br.com.demos.vo.Projetos;
+import br.com.demos.vo.Tarefas;
 
 public class CsvWriteReadTest {
 
@@ -25,7 +25,7 @@ public class CsvWriteReadTest {
         String fileName = System.getProperty("user.home") + "/casoteste.csv";
 
         final File file = new File(fileName);
-        List<CasoTeste> casosTestes = null;
+        List<CasoTestes> casosTestes = null;
 
         final String delimiter = ";";
         final String encoding = "ISO-8859-1";
@@ -38,11 +38,11 @@ public class CsvWriteReadTest {
         try {
             Map<String, List<String>> map = parser.toMap(file);
 
-            casosTestes = new ArrayList<CasoTeste>();
+            casosTestes = new ArrayList<CasoTestes>();
 
             for (int i = 0; i < map.get(fields[0]).size(); i++) {
 
-                CasoTeste obj = new CasoTeste(map.get("CASOTESTE").get(i).trim(), null);
+                CasoTestes obj = new CasoTestes(map.get("CASOTESTE").get(i).trim());
                 casosTestes.add(obj);
             }
 
@@ -60,7 +60,7 @@ public class CsvWriteReadTest {
         String fileName = System.getProperty("user.home") + "/tarefa.csv";
 
         final File file = new File(fileName);
-        List<Tarefa> tarefas = null;
+        List<Tarefas> tarefas = null;
 
         final String delimiter = ";";
         final String encoding = "ISO-8859-1";
@@ -73,11 +73,11 @@ public class CsvWriteReadTest {
         try {
             Map<String, List<String>> map = parser.toMap(file);
 
-            tarefas = new ArrayList<Tarefa>();
+            tarefas = new ArrayList<Tarefas>();
 
             for (int i = 0; i < map.get(fields[0]).size(); i++) {
 
-                Tarefa obj = new Tarefa(map.get("TAREFA").get(i).trim(), null);
+                Tarefas obj = new Tarefas(map.get("TAREFA").get(i).trim());
                 tarefas.add(obj);
             }
 
@@ -96,7 +96,7 @@ public class CsvWriteReadTest {
         String fileName = System.getProperty("user.home") + "/projeto.csv";
 
         final File file = new File(fileName);
-        List<Projeto> projetos = null;
+        List<Projetos> projetos = null;
 
         final String delimiter = ";";
         final String encoding = "ISO-8859-1";
@@ -109,11 +109,11 @@ public class CsvWriteReadTest {
         try {
             Map<String, List<String>> map = parser.toMap(file);
 
-            projetos = new ArrayList<Projeto>();
+            projetos = new ArrayList<Projetos>();
 
             for (int i = 0; i < map.get(fields[0]).size(); i++) {
 
-                Projeto obj = new Projeto(map.get("PROJETO").get(i).trim(), null);
+                Projetos obj = new Projetos(map.get("PROJETO").get(i).trim());
                 projetos.add(obj);
             }
 

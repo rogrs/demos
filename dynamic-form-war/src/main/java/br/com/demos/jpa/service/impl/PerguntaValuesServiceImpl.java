@@ -6,7 +6,7 @@ import java.util.Map;
 
 import br.com.api.persistence.generic.GenericDAOJPA;
 import br.com.api.persistence.service.GenericJPAService;
-import br.com.demos.vo.Pergunta;
+import br.com.demos.vo.Perguntas;
 import br.com.demos.vo.PerguntaValues;
 
 public class PerguntaValuesServiceImpl extends GenericDAOJPA<PerguntaValues, Long> implements GenericJPAService<PerguntaValues> {
@@ -20,7 +20,7 @@ public class PerguntaValuesServiceImpl extends GenericDAOJPA<PerguntaValues, Lon
 
     }
 
-    public List<PerguntaValues> findPergunta(Pergunta obj) {
+    public List<PerguntaValues> findPergunta(Perguntas obj) {
 
         String sql = "SELECT p FROM PerguntaValues p WHERE p.idpergunta = :idpergunta";
 

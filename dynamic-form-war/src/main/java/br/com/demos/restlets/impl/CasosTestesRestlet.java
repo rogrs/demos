@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 
 import br.com.demos.jpa.service.impl.CasoTesteServiceImpl;
 import br.com.demos.restlets.CasoTesteRest;
-import br.com.demos.vo.CasoTeste;
+import br.com.demos.vo.CasoTestes;
 
 public class CasosTestesRestlet implements CasoTesteRest {
 
@@ -24,7 +24,7 @@ public class CasosTestesRestlet implements CasoTesteRest {
 
     public Response listar() {
 
-        List<CasoTeste> entity = null;
+        List<CasoTestes> entity = null;
 
         try {
 
@@ -45,7 +45,7 @@ public class CasosTestesRestlet implements CasoTesteRest {
 
         String result = null;
 
-        CasoTeste entity = null;
+        CasoTestes entity = null;
         Long projeto = null;
         try {
             projeto = Long.parseLong(idprojeto);
@@ -55,8 +55,8 @@ public class CasosTestesRestlet implements CasoTesteRest {
 
         try {
 
-            entity = new CasoTeste();
-            entity.setNmcasoteste(nmcasoteste);
+            entity = new CasoTestes();
+            entity.setCasoteste(nmcasoteste);
             entity.setIdprojeto(projeto);
             entity.setEnabled(1);
 

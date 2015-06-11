@@ -6,11 +6,11 @@ import java.util.Map;
 
 import br.com.api.persistence.generic.GenericDAOJPA;
 import br.com.api.persistence.service.GenericJPAService;
-import br.com.demos.vo.Tarefa;
+import br.com.demos.vo.Tarefas;
 
-public class TarefaServiceImpl extends GenericDAOJPA<Tarefa, Long> implements GenericJPAService<Tarefa> {
+public class TarefaServiceImpl extends GenericDAOJPA<Tarefas, Long> implements GenericJPAService<Tarefas> {
 
-    public List<Tarefa> findByName(String name) {
+    public List<Tarefas> findByName(String name) {
         
         String sql = "SELECT t FROM Tarefa t WHERE t.nmtarefa = :nmtarefa";
         Map<String, Object> params = new HashMap<String, Object>();

@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,6 +22,12 @@ import lombok.Setter;
 @Entity
 @Table(name = "propriedades")
 @XmlRootElement
+@NamedQueries({ @NamedQuery(name = "Propriedades.findAll", query = "SELECT p FROM Propriedades p"),
+        @NamedQuery(name = "Propriedades.findById", query = "SELECT p FROM Propriedades p WHERE p.id = :id"),
+        @NamedQuery(name = "Propriedades.findByChave", query = "SELECT p FROM Propriedades p WHERE p.chave = :chave"),
+        @NamedQuery(name = "Propriedades.findByEnabled", query = "SELECT p FROM Propriedades p WHERE p.enabled = :enabled"),
+        @NamedQuery(name = "Propriedades.findByValor", query = "SELECT p FROM Propriedades p WHERE p.valor = :valor"),
+        @NamedQuery(name = "Propriedades.findByDtcreate", query = "SELECT p FROM Propriedades p WHERE p.dtcreate = :dtcreate") })
 @Getter
 @Setter
 public class Propriedades implements Serializable {
@@ -29,14 +37,12 @@ public class Propriedades implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
-    @Basic(optional = false)
-    @Column(name = "chave", length = 255)
+    @Column(name = "chave")
     private String chave;
-    @Basic(optional = false)
-    @Column(name = "valor", length =1024)
-    private String valor;
     @Column(name = "enabled")
     private Integer enabled;
+    @Column(name = "valor")
+    private String valor;
     @Basic(optional = false)
     @Column(name = "dtcreate")
     @Temporal(TemporalType.TIMESTAMP)
@@ -47,13 +53,6 @@ public class Propriedades implements Serializable {
 
     public Propriedades(Long id) {
         this.id = id;
-    }
-
-    public Propriedades(Long id, String chave, String valor, Date dtcreate) {
-        this.id = id;
-        this.chave = chave;
-        this.valor = valor;
-        this.dtcreate = dtcreate;
     }
 
     @Override
@@ -78,7 +77,7 @@ public class Propriedades implements Serializable {
 
     @Override
     public String toString() {
-        return this.chave+" "+this.valor;
+        return this.chave;
     }
-    
+
 }

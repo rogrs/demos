@@ -15,7 +15,7 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 
 import br.com.demos.jpa.service.impl.ProjetoServiceImpl;
-import br.com.demos.vo.Projeto;
+import br.com.demos.vo.Projetos;
 
 @Ignore
 public class ProjetoJpaControllerTest extends TestCase {
@@ -72,10 +72,10 @@ public class ProjetoJpaControllerTest extends TestCase {
       
        
       // impl.setEntityManager(em);
-       List<Projeto>  projetos =  impl.findAll();
+       List<Projetos>  projetos =  impl.findAll();
        
        System.out.println("Found " + projetos.size() + " projetos:");
-       for (Projeto p : projetos){
+       for (Projetos p : projetos){
            
            System.out.println(p);
        }
