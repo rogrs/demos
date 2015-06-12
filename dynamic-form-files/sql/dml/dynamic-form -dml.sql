@@ -1,35 +1,36 @@
 
-INSERT INTO `pergunta` (`id`, `pergunta`, `componente`, `sequencia`) VALUES
-(1, 'Qual é o seu nome?', 'text', 1),
-(2, 'Você estuda?', 'radio', 2),
-(3, 'Você cumprimenta estranhos na rua?', 'radio', 3),
-(4, 'Quem faz os serviços domésticos na sua casa?', 'text', 4),
-(5, 'Você acha que as vezes acaba comprando produtos sem necessidade?', 'radio', 5),
-(6, 'Você fuma?', 'radio', 6),
-(7, 'Qual é a cor dos seus olhos?', 'select', 7),
-(8, 'Qual a sua altura?', 'text', 8),
-(9, 'Usa aparelho, tem pirceng ou tatuagem?', 'text', 9),
-(10, 'Você acha que os produtos caros são os melhores?', 'radio', 10),
-(11, 'O que você queria ser quando era criança?', 'text', 11),
-(12, 'Qual o nome do seu melhor amigo??', 'text', 12),
-(13, 'Você tem algum aninal?', 'radio', 13),
-(14, 'Você já saiu do país?', 'radio', 14),
-(15, 'Qual tipo de filme favorito?', 'select', 15),
-(16, 'Qual seu programa de TV favorito?', 'text', 16),
-(17, 'Qual seu livro favorito?', 'text', 17),
-(18, 'Bebida favorita?', 'text', 18),
-(19, 'Loja de roupa favorita?', 'text', 19),
-(20, 'Lugar favorito?', 'text', 20),
-(21, 'Você prefere Facebook ou Twitter?', 'radio', 21),
-(22, 'Qual é o modelo do seu celular?', 'select', 22),
-(23, 'Você quer ter quantos filhos?', 'text', 23),
-(24, 'Você acredita em Deus?', 'radio', 24),
-(25, 'O YouTube é coisa de quem não tem o que fazer?', 'radio', 25),
-(26, 'O que você mais gosta de fazer?', 'radio', 26),
-(27, 'Qual foi o último filme que você assistiu?', 'radio', 27),
-(28, 'Para qual time que você torce?', 'text', 28),
-(29, 'Quantas pessoas moram com você?', 'number', 29),
-(30, 'Qual é a sua data de nascimento?', 'date', 30);
+INSERT INTO `perguntas` (`id`, `pergunta`, `componente`, `sequencia`,`idformulario`) VALUES
+(1, 'Qual é o seu nome?', 'text', 1, 1),
+(2, 'Você estuda?', 'radio', 2, 1),
+(3, 'Você cumprimenta estranhos na rua?', 'radio', 3, 1),
+(4, 'Quem faz os serviços domésticos na sua casa?', 'text', 4, 1),
+(5, 'Você acha que as vezes acaba comprando produtos sem necessidade?', 'radio', 5, 1),
+(6, 'Você fuma?', 'radio', 6, 1),
+(7, 'Qual é a cor dos seus olhos?', 'select', 7, 1),
+(8, 'Qual a sua altura?', 'text', 8, 1),
+(9, 'Usa aparelho, tem pirceng ou tatuagem?', 'text', 9, 1),
+(10, 'Você acha que os produtos caros são os melhores?', 'radio', 10, 1),
+(11, 'O que você queria ser quando era criança?', 'text', 11, 1),
+(12, 'Qual o nome do seu melhor amigo??', 'text', 12, 1),
+(13, 'Você tem algum aninal?', 'radio', 13, 1),
+(14, 'Você já saiu do país?', 'radio', 14, 1),
+(15, 'Qual tipo de filme favorito?', 'select', 15, 1),
+(16, 'Qual seu programa de TV favorito?', 'text', 16, 1),
+(17, 'Qual seu livro favorito?', 'text', 17, 1),
+(18, 'Bebida favorita?', 'text', 18, 1),
+(19, 'Loja de roupa favorita?', 'text', 19, 1),
+(20, 'Lugar favorito?', 'text', 20, 1),
+(21, 'Você prefere Facebook ou Twitter?', 'radio', 21, 1),
+(22, 'Qual é o modelo do seu celular?', 'select', 22, 1),
+(23, 'Você quer ter quantos filhos?', 'text', 23, 1),
+(24, 'Você acredita em Deus?', 'radio', 24, 1),
+(25, 'O YouTube é coisa de quem não tem o que fazer?', 'radio', 25, 1),
+(26, 'O que você mais gosta de fazer?', 'radio', 26, 1),
+(27, 'Qual foi o último filme que você assistiu?', 'radio', 27, 1),
+(28, 'Para qual time que você torce?', 'text', 28, 1),
+(29, 'Quantas pessoas moram com você?', 'number', 29, 1),
+(30, 'Qual é a sua data de nascimento?', 'date', 30, 1);
+
 
 
 INSERT INTO `pergunta_values` (`id`, `idpergunta`, `chave`, `valor`) VALUES
@@ -53,11 +54,6 @@ INSERT INTO `pergunta_values` (`id`, `idpergunta`, `chave`, `valor`) VALUES
 (18, 22, 'modelSOCellE', 'Outros');
 
 
-INSERT INTO `projeto` (`id`, `dtcreate`, `enabled`, `nmprojeto`) VALUES
-(1, NULL, 1, 'OiFixoControle'),
-(2, NULL, 1, 'OiTV'),
-(3, NULL, 1, 'OiControle'),
-(4, NULL, 1, 'TIM Fiber');
 
 
 INSERT INTO `propriedades` (`id`, `chave`, `dtcreate`, `enabled`, `valor`) VALUES
