@@ -22,12 +22,12 @@ import lombok.Setter;
 @Entity
 @Table(name = "casotestes")
 @XmlRootElement
-@NamedQueries({ @NamedQuery(name = "Casotestes.findAll", query = "SELECT c FROM Casotestes c"),
-        @NamedQuery(name = "Casotestes.findById", query = "SELECT c FROM Casotestes c WHERE c.id = :id"),
-        @NamedQuery(name = "Casotestes.findByCasoteste", query = "SELECT c FROM Casotestes c WHERE c.casoteste = :casoteste"),
-        @NamedQuery(name = "Casotestes.findByDtcreate", query = "SELECT c FROM Casotestes c WHERE c.dtcreate = :dtcreate"),
-        @NamedQuery(name = "Casotestes.findByEnabled", query = "SELECT c FROM Casotestes c WHERE c.enabled = :enabled"),
-        @NamedQuery(name = "Casotestes.findByIdprojeto", query = "SELECT c FROM Casotestes c WHERE c.idprojeto = :idprojeto") })
+@NamedQueries({ @NamedQuery(name = "Casotestes.findAll", query = "SELECT c FROM CasoTestes c"),
+        @NamedQuery(name = "Casotestes.findById", query = "SELECT c FROM CasoTestes c WHERE c.id = :id"),
+        @NamedQuery(name = "Casotestes.findByCasoteste", query = "SELECT c FROM CasoTestes c WHERE c.casoteste = :casoteste"),
+        @NamedQuery(name = "Casotestes.findByDtcreate", query = "SELECT c FROM CasoTestes c WHERE c.dtcreate = :dtcreate"),
+        @NamedQuery(name = "Casotestes.findByEnabled", query = "SELECT c FROM CasoTestes c WHERE c.enabled = :enabled"),
+        @NamedQuery(name = "Casotestes.findByIdprojeto", query = "SELECT c FROM CasoTestes c WHERE c.idprojeto = :idprojeto") })
 @Getter
 @Setter
 public class CasoTestes implements Serializable {

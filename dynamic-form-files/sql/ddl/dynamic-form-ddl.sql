@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `tarefas` (
 
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
   `fullname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
