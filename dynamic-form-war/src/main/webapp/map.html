@@ -93,5 +93,62 @@
 			} catch (err) {
 			}
 		</script>
+
+
+	<p>Click the button to get your coordinates.</p>
+
+	<button onclick="getLocation()">Try It</button>
+
+	<p id="demo"></p>
+
+	<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    document.form.latitude.value = position.coords.latitude;
+    document.form.longitude.value = position.coords.longitude;
+}
+</script>
+
+	<form id="form" name="form" action="rs/v1/geolocations" method="post">
+
+
+		
+		<input type="hidden" name="idusuario" id="idusuario" value='1'>
+		
+		
+		<label for="address">Ip</label>
+		<p>
+			<input type="text" name="address" id="address">
+		</p>
+		
+		<label for="msg">Mensagem</label>
+		<p>
+			<input type="text" name="msg" id="msg">
+		</p>
+		
+		<label for="latitude">Latitude</label>
+		<p>
+			<input type="text" name="latitude" id="latitude">
+		</p>
+		
+		<label for="longitude">Longitude</label>
+		<p>
+			<input type="text" name="longitude" id="longitude">
+		</p>
+		
+		<input type="submit" class="btn btn-small btn-primary" value='Enviar Dados'>
+
+	</form>
+
+
 </body>
 </html>

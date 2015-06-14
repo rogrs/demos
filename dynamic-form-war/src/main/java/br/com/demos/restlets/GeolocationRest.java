@@ -16,7 +16,7 @@ import br.com.demos.restlets.forms.GeolocationForm;
 
 
 
-@Path(value = "/v1/geolocaions/")
+@Path(value = "/v1/geolocations/")
 public interface GeolocationRest {
 
     @GET

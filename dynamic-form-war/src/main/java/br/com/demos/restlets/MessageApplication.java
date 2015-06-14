@@ -11,6 +11,7 @@ import br.com.demos.restlets.impl.CasosTestesRestlet;
 import br.com.demos.restlets.impl.EventosRestlet;
 import br.com.demos.restlets.impl.FormularioFilesRestlet;
 import br.com.demos.restlets.impl.FormulariosRestlet;
+import br.com.demos.restlets.impl.GeolocationRestlet;
 import br.com.demos.restlets.impl.PerguntasRestlet;
 import br.com.demos.restlets.impl.ProjetosRestlet;
 import br.com.demos.restlets.impl.PropriedadesRestlet;
@@ -38,7 +39,7 @@ public class MessageApplication extends Application {
             singletons.add(new UsuariosRestlet());  
             singletons.add(new FormularioFilesRestlet());
             singletons.add(new AuthenticationRestlet());
-        
+            singletons.add(new GeolocationRestlet());
     }
     
    /* @Override
