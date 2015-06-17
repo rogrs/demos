@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.api.persistence.generic.impl.PropriedadeServiceImpl;
+import br.com.api.persistence.generic.vo.Propriedades;
 import br.com.demos.jpa.service.impl.FormularioFilesServiceImpl;
-import br.com.demos.jpa.service.impl.PropriedadeServiceImpl;
 import br.com.demos.util.ID;
 import br.com.demos.vo.FormularioFiles;
-import br.com.demos.vo.Propriedades;
+
 
 /**
  * Servlet implementation class FormularioFilesServlet

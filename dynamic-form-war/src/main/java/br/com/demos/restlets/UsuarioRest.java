@@ -12,7 +12,9 @@ import javax.ws.rs.core.Response;
 
 import org.jboss.resteasy.annotations.Form;
 
-import br.com.demos.restlets.forms.UserForm;
+import br.com.api.restlets.forms.UserForm;
+
+
 
 //http://howtodoinjava.com/2013/06/26/jax-rs-resteasy-basic-authentication-and-authorization-tutorial/
 @Path(value = "/v1/users/")

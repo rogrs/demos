@@ -8,9 +8,10 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 
-import br.com.demos.jpa.service.impl.PropriedadeServiceImpl;
+import br.com.api.persistence.generic.impl.PropriedadeServiceImpl;
+import br.com.api.persistence.generic.vo.Propriedades;
 import br.com.demos.restlets.PropriedadeRest;
-import br.com.demos.vo.Propriedades;
+
 
 public class PropriedadesRestlet implements PropriedadeRest {
 

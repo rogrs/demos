@@ -20,11 +20,12 @@ import org.apache.log4j.Logger;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 
+import br.com.api.persistence.generic.impl.PropriedadeServiceImpl;
+import br.com.api.persistence.generic.vo.Propriedades;
 import br.com.demos.jpa.service.impl.FormularioFilesServiceImpl;
-import br.com.demos.jpa.service.impl.PropriedadeServiceImpl;
 import br.com.demos.restlets.FormularioFilesRest;
 import br.com.demos.vo.FormularioFiles;
-import br.com.demos.vo.Propriedades;
+
 
 public class FormularioFilesRestlet implements FormularioFilesRest {
 

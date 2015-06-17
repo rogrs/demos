@@ -10,11 +10,13 @@ import javax.ws.rs.core.Response;
 import org.apache.log4j.Logger;
 import org.jboss.resteasy.annotations.Form;
 
+import br.com.api.persistence.generic.impl.UsuariosServiceImpl;
+import br.com.api.persistence.generic.vo.Usuarios;
+import br.com.api.restlets.forms.UserForm;
 import br.com.api.security.util.Hash;
-import br.com.demos.jpa.service.impl.UsuariosServiceImpl;
 import br.com.demos.restlets.UsuarioRest;
-import br.com.demos.restlets.forms.UserForm;
-import br.com.demos.vo.Usuarios;
+
+
 
 public class UsuariosRestlet implements UsuarioRest {
 

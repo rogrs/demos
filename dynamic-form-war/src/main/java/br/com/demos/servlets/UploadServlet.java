@@ -14,11 +14,12 @@ import javax.servlet.http.Part;
 
 import org.apache.log4j.Logger;
 
+import br.com.api.persistence.generic.impl.PropriedadeServiceImpl;
+import br.com.api.persistence.generic.vo.Propriedades;
 import br.com.demos.jpa.service.impl.EventoServiceImpl;
-import br.com.demos.jpa.service.impl.PropriedadeServiceImpl;
 import br.com.demos.util.HostInfo;
 import br.com.demos.vo.Eventos;
-import br.com.demos.vo.Propriedades;
+
 
 /**
  * Servlet implementation class UploadServlet

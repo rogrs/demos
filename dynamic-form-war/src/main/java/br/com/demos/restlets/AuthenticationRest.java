@@ -9,7 +9,8 @@ import javax.ws.rs.core.Response;
 
 import org.jboss.resteasy.annotations.Form;
 
-import br.com.demos.restlets.forms.AuthenticationForm;
+import br.com.api.restlets.forms.AuthenticationForm;
+
 
 
 @Path(value = "/v1/authentication/")

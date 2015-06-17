@@ -4,10 +4,11 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 
-import br.com.demos.jpa.service.impl.UsuariosServiceImpl;
+import br.com.api.persistence.generic.impl.UsuariosServiceImpl;
+import br.com.api.persistence.generic.vo.Usuarios;
+import br.com.api.restlets.forms.AuthenticationForm;
 import br.com.demos.restlets.AuthenticationRest;
-import br.com.demos.restlets.forms.AuthenticationForm;
-import br.com.demos.vo.Usuarios;
+
 
 public class AuthenticationRestlet implements AuthenticationRest {
 

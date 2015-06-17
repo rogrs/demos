@@ -2,6 +2,8 @@ package br.com.demos.jpa.service.impl;
 
 import org.junit.Test;
 
+import br.com.api.persistence.generic.impl.UsuariosServiceImpl;
+
 public class UsuariosServiceImplTest {
     
     

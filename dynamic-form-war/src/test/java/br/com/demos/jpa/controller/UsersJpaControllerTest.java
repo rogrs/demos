@@ -11,8 +11,9 @@ import junit.framework.TestCase;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
-import br.com.demos.jpa.service.impl.UsuariosServiceImpl;
-import br.com.demos.vo.Usuarios;
+import br.com.api.persistence.generic.impl.UsuariosServiceImpl;
+import br.com.api.persistence.generic.vo.Usuarios;
+
 
 
 public class UsersJpaControllerTest extends TestCase {
