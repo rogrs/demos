@@ -23,8 +23,7 @@ import br.com.demos.restlets.impl.UsuariosRestlet;
 @ApplicationPath("/rs")
 public class MessageApplication extends Application {
 
-   // private static final Logger LOGGER = Logger.getLogger(MessageApplication.class);
-    
+   
     
     private Set<Object> singletons = new HashSet<Object>();
 
@@ -41,11 +40,6 @@ public class MessageApplication extends Application {
             singletons.add(new AuthenticationRestlet());
             singletons.add(new GeolocationRestlet());
     }
-    
-   /* @Override
-    public Set<Class<?>> getClasses() {
-        return new HashSet<Class<?>>(Arrays.asList(CasosTestesRestlet.class, SecurityInterceptor.class));
-    }*/
 
     @Override
     public Set<Object> getSingletons() {
