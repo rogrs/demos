@@ -3,7 +3,7 @@
 
 
 ## Requirements 
-Java JDK [here] (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnpt)
+Java JDK [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html?ssSourceSiteId=otnpt)
 
 Maven version [here](http://maven.apache.org/download.cgi)
 
