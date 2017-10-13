@@ -1,0 +1,27 @@
+{
+    "demoApp": {
+        "location" : {
+            "home": {
+                "title": "Locations",
+                "createLabel": "Criar novo Location",
+                "createOrEditLabel": "Criar ou editar Location",
+                "search": "Pesquisar por Location"
+            },
+            "created": "Um novo Location foi criado com o identificador {{ param }}",
+            "updated": "Um Location foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Location foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Location {{ id }}?"
+            },
+            "detail": {
+                "title": "Location"
+            },
+            "streetAddress": "Street Address",
+            "postalCode": "Postal Code",
+            "city": "City",
+            "stateProvince": "State Province",
+            "country": "Country",
+            "departament": "Departament"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "demoApp": {
+        "employee" : {
+            "home": {
+                "title": "Employees",
+                "createLabel": "Criar novo Employee",
+                "createOrEditLabel": "Criar ou editar Employee",
+                "search": "Pesquisar por Employee"
+            },
+            "created": "Um novo Employee foi criado com o identificador {{ param }}",
+            "updated": "Um Employee foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Employee foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Employee {{ id }}?"
+            },
+            "detail": {
+                "title": "Employee"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "phoneNumber": "Phone Number",
+            "hireDate": "Hire Date",
+            "salary": "Salary",
+            "commissionPct": "Commission Pct",
+            "job": "Job",
+            "manager": "Manager",
+            "department": "Department"
+        }
+    }
+}
