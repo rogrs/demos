@@ -15,6 +15,28 @@
     <packaging>war</packaging>
     <name>Demo</name>
 
+
+    <issueManagement>
+	<url>https://github.com/rogrs/demos/issues</url>
+	<system>GitHub Issues</system>
+    </issueManagement>
+
+
+	<scm>
+		<url>https://github.com/rogrs/demos</url>
+		<connection>scm:git:git://github.com/rogrs/demos.git</connection>
+		<developerConnection>scm:git:git@github.com:rogrs/demos.git</developerConnection>
+	</scm>
+
+	<developers>
+		<developer>
+			<email>rogerio.rs@gmail.com</email>
+			<name>Rogerio Ribeiro</name>
+			<url>https://github.com/rogrs</url>
+			<id>rogrs</id>
+		</developer>
+	</developers>
+
     <properties>
         <argLine>-Djava.security.egd=file:/dev/./urandom -Xmx256m</argLine>
         <assertj.version>3.6.2</assertj.version>
