@@ -1,4 +1,4 @@
-# demo  [![Build Status](https://travis-ci.org/rogrs/demos.svg?branch=master)](https://travis-ci.org/rogrs/demos) [![Dependency Status](https://david-dm.org/rogrs/demos.svg)](https://david-dm.org/rogrs/demos) [![devDependency Status](https://david-dm.org/rogrs/demos/dev-status.svg)](https://david-dm.org/rogrs/demos#info=devDependencies) [![peerDependency Status](https://david-dm.org/rogrs/demos/peer-status.svg)](https://david-dm.org/rogrs/demos#info=peerDependencies)
+# demos  [![Build Status](https://travis-ci.org/rogrs/demos.svg?branch=master)](https://travis-ci.org/rogrs/demos) [![Dependency Status](https://david-dm.org/rogrs/demos.svg)](https://david-dm.org/rogrs/demos) [![devDependency Status](https://david-dm.org/rogrs/demos/dev-status.svg)](https://david-dm.org/rogrs/demos#info=devDependencies) [![peerDependency Status](https://david-dm.org/rogrs/demos/peer-status.svg)](https://david-dm.org/rogrs/demos#info=peerDependencies)
 
 This application was generated using JHipster 4.9.0, you can find documentation and help at [http://www.jhipster.tech/documentation-archive/v4.9.0](http://www.jhipster.tech/documentation-archive/v4.9.0).
 
