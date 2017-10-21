@@ -15,7 +15,7 @@
 	<version>0.0.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Demos</name>
-	<description>Projetos de Demostração</description>
+	<description>Projetos de Demostrações</description>
 	<url>https://github.com/rogrs/demos</url>
 
 	<issueManagement>
@@ -47,6 +47,7 @@
 	<modules>
 		<module>contatos</module>
 		<module>estoque</module>
+                <module>security</module>
 	</modules>
 
 	<dependencyManagement>
