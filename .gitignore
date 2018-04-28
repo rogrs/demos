@@ -1,6 +1,7 @@
 ######################
 # Project Specific
 ######################
+/restfulshop/target/www/**
 /target/www/**
 /src/test/javascript/coverage/
 
@@ -69,6 +70,7 @@ classes/
 ######################
 /log/
 /target/
+/restfulshop/target/
 
 ######################
 # Gradle
