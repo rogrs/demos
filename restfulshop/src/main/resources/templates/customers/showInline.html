@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="|#{label_show_entity(#{label_customer})}|">Show Customer - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+    <!--CONTAINER-->
+    <div class="container bg-container">
+      <!-- CONTENT -->
+      <!--
+        Only the inner content of the following tag "section" is included
+        within the template, in the section "content"
+      -->
+      <section data-th-fragment="inline-content" data-layout-fragment="content" data-th-object="${customer}">
+        <div>
+
+          <!-- CONTENT -->
+            <div id="mainEntityFieldSet">
+              <ul class="list-unstyled" id="containerFields">
+                  <li id="customer-firstname-field" data-z="6b8d8e55">
+            	      <strong data-th-text="#{label_customer_firstname}">firstName</strong>
+                    <span data-th-text="*{{firstName}}">firstNameValue</span>
+         	        </li>
+                  <li id="customer-lastname-field" data-z="3b74b869">
+            	      <strong data-th-text="#{label_customer_lastname}">lastName</strong>
+                    <span data-th-text="*{{lastName}}">lastNameValue</span>
+         	        </li>
+              </ul>
+            </div>
+
+                <div id="addressFieldSet">
+                  <h2 data-th-text="#{label_data_entity(#{label_customer_address})}">Address data</h2>
+                  <ul class="list-unstyled" id="containerFields">
+                      <li id="address-address_street-field" data-z="e6ab8423">
+                        <strong data-th-text="#{label_address_street}">address.street</strong>
+                        <span data-th-text="*{{address.street}}">address.streetValue</span>
+                      </li>
+                      <li id="address-address_city-field" data-z="a5a2b023">
+                        <strong data-th-text="#{label_address_city}">address.city</strong>
+                        <span data-th-text="*{{address.city}}">address.cityValue</span>
+                      </li>
+                      <li id="address-address_streetnumber-field" data-z="1455c023">
+                        <strong data-th-text="#{label_address_streetnumber}">address.streetNumber</strong>
+                        <span data-th-text="*{{address.streetNumber}}">address.streetNumberValue</span>
+                      </li>
+                 </ul>
+                </div>
+        </div>
+
+      </section>
+      <!-- /CONTENT -->
+  </div>
+  <!-- /CONTAINER -->
+
+  <footer class="container">
+    <!-- Content replaced by layout of the page displayed -->
+  </footer>
+
+  <!-- JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so that the pages load faster -->
+  <!-- JavaScript loaded by layout of the page displayed -->
+  <!--
+       Only the inner content of the following tag "javascript" is included
+       within the template, in the div "javascript"
+      -->
+  <div data-layout-fragment="javascript">
+  </div>
+
+  </body>
+
+</html>

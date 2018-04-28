@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: br.com.rogrs.web.CustomerOrdersCollectionJsonControllerIT
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.773 sec - in br.com.rogrs.web.CustomerOrdersCollectionJsonControllerIT

@@ -1,0 +1,22 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="customerorder-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('CustomerOrdersCollectionThymeleafController')},itemLink=${@linkBuilder.of('CustomerOrdersItemThymeleafController')}">
+    <table id="customerorder-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="orderDate" data-th-text="#{label_customerorder_orderdate}">orderDate</th>
+          <th data-data="shippedDate" data-th-text="#{label_customerorder_shippeddate}">shippedDate</th>
+          <th data-data="shipAddress" data-th-text="#{label_customerorder_shipaddress}">shipAddress</th>
+          <th data-data="customer" data-th-text="#{label_customerorder_customer}">customer</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>orderDate</td>
+          <td>shippedDate</td>
+          <td>shipAddress</td>
+          <td>customer</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

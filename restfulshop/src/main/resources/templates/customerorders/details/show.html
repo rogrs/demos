@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-layout-decorate="~{layouts/default-list-layout}">
+    <head id="head">
+
+    <title data-th-text="#{label_show_entity(#{label_orderdetail})}">Show OrderDetail - Spring Roo application</title>
+
+  </head>
+
+  <body id="body">
+
+    <header role="banner">
+      <!-- Content replaced by layout of the page displayed -->
+    </header>
+
+      <!--CONTAINER-->
+      <div class="container bg-container" data-th-with="detailItemLink=${@linkBuilder.of('CustomerOrdersItemDetailsItemThymeleafController')}">
+        <!-- CONTENT -->
+        <!--
+          Only the inner content of the following tag "section" is included
+          within the template, in the section "content"
+        -->
+        <section data-layout-fragment="content" data-th-object="${orderDetail}">
+          <div class="container-fluid content">
+
+            <h1 data-th-text="#{label_show_entity(#{label_orderdetail})}">Show OrderDetail</h1>
+
+            <ul class="list-unstyled" id="containerFields">
+                  <li id="orderdetail-quantity" data-z="aa282cd4">
+              	    <strong data-th-text="#{label_orderdetail_quantity}">quantity</strong>
+                    <span data-th-text="*{{quantity}}">quantityValue</span>
+           	      </li>
+                  <li id="orderdetail-customerorder" data-z="5479c58a">
+              	    <strong data-th-text="#{label_orderdetail_customerorder}">customerOrder</strong>
+                    <span data-th-text="*{{customerOrder}}">customerOrderValue</span>
+           	      </li>
+                  <li id="orderdetail-product" data-z="fce2e60a">
+              	    <strong data-th-text="#{label_orderdetail_product}">product</strong>
+                    <span data-th-text="*{{product}}">productValue</span>
+           	      </li>
+
+            </ul>
+
+            <div class="clearfix">
+              <div class="pull-left">
+                <a id="OrderDetail_list" href="list.html" class="btn btn-default" data-th-title="#{label_goBack}" data-th-href="${collectionLink.to('list')}}">
+          	       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          	       <span data-th-text="#{label_back}">Back</span>
+    	          </a>
+              </div>
+              <div class="pull-right" style="border: 1px solid red;">
+        	     <a id="OrderDetail_edit" href="edit.html" class="btn btn-primary" data-th-title="#{label_goEdit}" data-th-href="${detailItemLink.to('editForm')}" data-th-text="#{label_edit}">Edit</a>
+              </div>
+            </div>
+
+          </div>
+          <!-- /CONTENT -->
+
+          <!-- MODAL -->
+        </section>
+        <!-- /CONTENT -->
+    </div>
+    <!-- /CONTAINER -->
+
+    <footer class="container">
+      <!-- Content replaced by layout of the page displayed -->
+    </footer>
+
+    <!-- JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so that the pages load faster -->
+    <!-- JavaScript loaded by layout of the page displayed -->
+    <!--
+         Only the inner content of the following tag "javascript" is included
+         within the template, in the div "javascript"
+        -->
+    <div data-layout-fragment="javascript">
+    </div>
+
+  </body>
+
+</html>

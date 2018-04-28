@@ -1,0 +1,58 @@
+// Spring Roo 2.0.0.RC3 [rev 13cc6cc] log opened at 2018-04-27 21:50:17
+project setup --topLevelPackage br.com.rogrs --projectName restfulshop --java 8
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+entity jpa --class ~.model.Address
+field string --fieldName street
+field string --fieldName city
+field number --fieldName streetNumber --type Integer --min 1
+entity jpa --class ~.model.Category --entityFormatMessage category_format
+field string --fieldName name --sizeMin 3 --sizeMax 30
+field string --fieldName description
+entity jpa --class ~.model.Customer --entityFormatExpression "#{firstName} #{lastName}"
+field string --fieldName  firstName
+field string --fieldName lastName
+entity jpa --class ~.model.Product --entityFormatExpression #{name}
+field string --fieldName name
+field string --fieldName description
+entity jpa --class ~.model.CustomerOrder --entityFormatExpression #{shipAddress}
+field date --fieldName orderDate --type java.util.Date --dateTimeFormatPattern "dd/MM/yyyy"
+field date --fieldName shippedDate --type java.util.Date --dateTimeFormatPattern "dd/MM/yyyy"
+field string --fieldName shipAddress
+entity jpa --class ~.model.OrderDetail
+field number --fieldName quantity --type Integer
+focus --class ~.model.Customer
+field reference --fieldName address --type ~.model.Address --aggregation false --joinColumnName my_customer
+field set --fieldName orders --type ~.model.CustomerOrder --joinTable my_customer_orders --joinColumns my_order --referencedColumns id --inverseJoinColumns my_customer --inverseReferencedColumns id
+focus --class ~.model.Category
+field set --fieldName products --type ~.model.Product --cardinality MANY_TO_MANY --aggregation --joinTable my_products_categories --joinColumns my_product --referencedColumns id --inverseJoinColumns my_category --inverseReferencedColumns id
+focus --class ~.model.CustomerOrder
+field set --fieldName details --type ~.model.OrderDetail --cardinality ONE_TO_MANY --aggregation false
+focus --class ~.model.Product
+field set --fieldName orderDetails --type ~.model.OrderDetail
+repository jpa --all
+service --all
+dto --class ~.model.CustomerFindByFirstNameAndLastName
+field string --fieldName firstName
+field string --fieldName lastName
+finder add --entity ~.model.Customer --name findByFirstNameAndLastName --formBean ~.model.CustomerFindByFirstNameAndLastName
+web mvc setup
+web mvc language --code es
+web mvc controller --all
+web mvc view setup --type THYMELEAF
+web mvc controller --all --responseType THYMELEAF
+web mvc finder --entity ~.model.Customer
+web mvc finder --entity ~.model.Customer --responseType THYMELEAF
+web mvc detail --entity ~.model.Customer --field orders
+web mvc detail --entity ~.model.Customer --field orders --responseType THYMELEAF --views list,findByFirstNameAndLastName
+web mvc detail --entity ~.model.Category --field products
+web mvc detail --entity ~.model.Category --field products --responseType THYMELEAF
+web mvc detail --entity ~.model.CustomerOrder --field details
+web mvc detail --entity ~.model.CustomerOrder --field details --responseType THYMELEAF
+test unit --class ~.model.Product
+test unit --class ~.model.CustomerOrder
+test unit --class ~.model.Address
+test integration --class ~.repository.CustomerRepository
+test integration --class ~.repository.CategoryRepository
+test integration --class ~.web.CustomerOrdersCollectionThymeleafController
+test integration --class ~.web.CustomerOrdersCollectionJsonController
+// script --file restfulshop.roo
