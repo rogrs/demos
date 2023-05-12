@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Management</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
+</head>
+<body>
+<div th:replace="${menu}"></div>
+
+<div class="container">
+    <h1 class="mt-4">Product Management</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li th:each="breadcrumb : ${breadcrumbs}" th:classappend="${breadcrumb.label == pageTitle} ? 'breadcrumb-item active' : 'breadcrumb-item'">
+                <a th:href="${breadcrumb.url}" th:text="${breadcrumb.label}"></a>
+            </li>
+        </ol>
+    </nav>
+    <a class="btn btn-primary mt-4" href="/products/new">Add New</a>
+    <table class="table table-striped table-sm table-hover">
+        <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="obj : ${products}">
+            <td th:text="${obj.name}"></td>
+            <td th:text="${obj.description}"></td>
+            <td>
+                <a class="btn btn-primary" th:href="@{/products/edit/{id}(id=${obj.id})}">Edit</a>
+                <a class="btn btn-danger" th:href="@{/products/delete/{id}(id=${obj.id})}" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+            </td>
+        </tr>
+        </table>
+    </div>
+<script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
